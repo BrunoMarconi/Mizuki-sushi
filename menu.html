@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Menu | MIZUKI SUSHI &amp; COCKTAIL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1f1b13",
+                        "surface-container-lowest": "#110e07",
+                        "tertiary": "#bfcdff",
+                        "primary-container": "#d4af37",
+                        "on-tertiary-fixed-variant": "#27438a",
+                        "on-error": "#690005",
+                        "surface-bright": "#3d392f",
+                        "outline-variant": "#4d4635",
+                        "on-background": "#eae1d4",
+                        "inverse-primary": "#735c00",
+                        "outline": "#99907c",
+                        "secondary-container": "#c31e00",
+                        "primary-fixed-dim": "#e9c349",
+                        "surface-container-highest": "#38342b",
+                        "on-tertiary-container": "#254188",
+                        "on-tertiary-fixed": "#00174b",
+                        "inverse-on-surface": "#343027",
+                        "on-surface": "#eae1d4",
+                        "background": "#16130b",
+                        "secondary-fixed-dim": "#ffb4a5",
+                        "surface": "#16130b",
+                        "inverse-surface": "#eae1d4",
+                        "on-tertiary": "#082b72",
+                        "surface-variant": "#38342b",
+                        "on-primary": "#3c2f00",
+                        "on-primary-fixed": "#241a00",
+                        "on-secondary-fixed-variant": "#8e1300",
+                        "on-secondary-fixed": "#3e0400",
+                        "primary": "#f2ca50",
+                        "surface-container": "#231f17",
+                        "surface-container-high": "#2d2a21",
+                        "tertiary-fixed-dim": "#b4c5ff",
+                        "secondary": "#ffb4a5",
+                        "on-primary-container": "#554300",
+                        "secondary-fixed": "#ffdad3",
+                        "on-secondary-container": "#ffd7d0",
+                        "surface-dim": "#16130b",
+                        "surface-tint": "#e9c349",
+                        "primary-fixed": "#ffe088",
+                        "tertiary-fixed": "#dbe1ff",
+                        "tertiary-container": "#97b0ff",
+                        "on-surface-variant": "#d0c5af",
+                        "on-secondary": "#650b00",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-lg": ["Montserrat"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "body-lg": ["Montserrat"],
+                        "label-sm": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: #eae1d4;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: #141414;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: #f2ca50;
+            box-shadow: 0 0 20px rgba(242, 202, 80, 0.08);
+            transform: translateY(-4px);
+        }
+        .sidebar-item-active {
+            background: rgba(212, 175, 55, 0.1);
+            border-right: 3px solid #f2ca50;
+            color: #f2ca50;
+        }
+        .gold-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #f2ca50;
+            transition: width 0.3s ease;
+        }
+        .gold-underline:hover::after {
+            width: 100%;
+        }
+        html { overflow-x: hidden; }
+        @keyframes pageSlideIn {
+            from { transform: translateX(6%); opacity: 0; }
+            to   { transform: translateX(0);  opacity: 1; }
+        }
+        @keyframes pageSlideOut {
+            from { transform: translateX(0);   opacity: 1; }
+            to   { transform: translateX(-6%); opacity: 0; }
+        }
+        body.is-entering { animation: pageSlideIn  0.45s cubic-bezier(0.4,0,0.2,1) both; }
+        body.is-leaving  { animation: pageSlideOut 0.35s cubic-bezier(0.4,0,0.2,1) both; pointer-events: none; }
+    </style>
+</head>
+<body class="font-body-md bg-background">
+<!-- TopNavBar (Fixed) -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/20">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<a href="index.html" class="font-headline-md text-headline-md tracking-widest text-primary">MIZUKI</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-lg text-label-lg" href="index.html">Home</a>
+<a class="text-primary font-bold border-b border-primary pb-1 font-label-lg text-label-lg" href="menu.html">Menu</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-lg text-label-lg" href="Cocktail.html">Cocktails</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-lg text-label-lg" href="reservas.html">Reservations</a>
+</div>
+<a href="reservas.html" class="bg-transparent border border-primary text-primary px-6 py-2 rounded-none font-label-lg text-label-lg hover:bg-primary hover:text-on-primary transition-all duration-300">
+                RESERVAR MESA
+            </a>
+</div>
+</nav>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden lg:flex flex-col h-screen w-64 fixed left-0 top-0 pt-24 pb-8 px-4 bg-surface-container-lowest border-r border-outline-variant/20 z-40">
+<div class="flex items-center gap-3 px-4 mb-10">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="restaurant">restaurant</span>
+</div>
+<div>
+<p class="font-headline-sm text-[18px] text-primary leading-tight">MIZUKI</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Sushi &amp; Cocktail</p>
+</div>
+</div>
+<nav class="flex-grow space-y-2">
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/10 transition-all" href="index.html">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-body-lg text-body-lg">Home</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/10 transition-all sidebar-item-active" href="menu.html">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-body-lg text-body-lg">Menu</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/10 transition-all" href="Cocktail.html">
+<span class="material-symbols-outlined" data-icon="local_bar">local_bar</span>
+<span class="font-body-lg text-body-lg">Cocktails</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/10 transition-all" href="reservas.html">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span class="font-body-lg text-body-lg">Reservations</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<div class="p-4 bg-surface-container-high rounded-lg border border-primary/10">
+<p class="text-primary font-label-sm text-label-sm mb-2">PROMO DEL DÍA</p>
+<p class="text-on-surface font-body-md text-body-md">-15% en Sushi Sets</p>
+</div>
+</div>
+</aside>
+<main class="lg:pl-64 pt-24 min-h-screen">
+<!-- Hero Section / Menu Header -->
+<section class="px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="w-full md:w-1/2 relative h-[400px] overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close up professional photography of three premium sushi rolls arranged artistically on a black slate background. The lighting is low-key with sharp highlights on the fresh salmon, tuna, and wasabi toppings. The atmosphere is sophisticated and high-end, featuring a dark mode luxury aesthetic with warm golden accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATQU0JI_sjrqHiEhPj3gvJUC-Y1M_lhfFTFJYKx9AUZ_aJA4tj2XHsT8EE8E-xK03BsEhzovopo5tINTkQe5h_mbyA8GPv7-Q6m_6nlLoo4nv_5sNT1_kfoyAXA74e8q1qfTMcPVbIaFG8xHupNadeEQDsjwJUrmOi3teg8h5N-6JBg3vbGM35zJV1dBHv2hh394QKNtu5wzHh5w60k3iXfurA6lKLFDHLIMfHoH0XMOd_uoKKvpl1TB9qiIRJi3VN5LqLUCY3rA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="w-full md:w-1/2">
+<h2 class="text-on-surface-variant uppercase tracking-[0.3em] font-label-lg text-label-lg mb-4">RESTAURANTE JAPONÉS</h2>
+<h1 class="font-display-lg text-display-lg md:text-[80px] text-on-surface mb-6">MIZUKI</h1>
+<p class="font-headline-sm text-headline-sm text-primary mb-6 italic">Diseño Minimalista, Máximo Sabor</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md leading-relaxed mb-8">
+                        Bienvenidos a Mizuki, donde ofrecemos una experiencia auténtica de sushi creada por nuestros maestros. Ingredientes de la más alta calidad traídos diariamente.
+                    </p>
+<a class="inline-flex items-center gap-4 text-primary font-label-lg text-label-lg group" href="#menu-grid">
+                        EXPLORAR CARTA
+                        <span class="w-12 h-12 rounded-full border border-primary flex items-center justify-center transition-all group-hover:bg-primary group-hover:text-on-primary">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Category Selector -->
+<section class="sticky top-[72px] z-30 bg-background/95 backdrop-blur-md py-6 border-b border-primary/10 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto flex overflow-x-auto no-scrollbar gap-8 items-center scroll-smooth">
+<button class="whitespace-nowrap font-label-lg text-label-lg text-primary border-b-2 border-primary pb-2 px-1">SUSHI ROLLS</button>
+<button class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">NIGIRI &amp; SASHIMI</button>
+<button class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">ENTRANTES</button>
+<button class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">POKES &amp; BOWLS</button>
+<button class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">POSTRES</button>
+<button class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">BEBIDAS</button>
+</div>
+</section>
+<!-- Menu Grid -->
+<section class="px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto" id="menu-grid">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1: Featured -->
+<div class="glass-card group flex flex-col h-full">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A macro shot of a Dragon Roll sushi platter on a minimalist dark ceramic plate. The roll is drizzled with unagi sauce and topped with thin slices of avocado and bright orange masago. Soft lighting emphasizes the texture of the rice and the shine of the sauce. Luxury restaurant presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1K1WZwjhO_G5UyXvRaftNN71dxMfhi9HLfbWhYjcrrBCb2-DuiCUF7A_uEcIkYXVfAX8oY4EGai-E_pC184NPylo_CE9TCcWvscok4ZP8-rxtX01ODypu82KkuFNqb8DI0mkBNVBM5LgdHJuxW_2aNsLzVRTbYT9kBNRhSH5eEOOtDu_7rfyCIDwbV371ltyVg-YAHNr98hmRCxajhhmnJM0KDGAUbRxmHufbLk3M65EViEDYqdSpmU7sW6yr4BpgVR6wMw_FZg"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="star" data-weight="fill">star</span>
+                            CHEF'S PICK
+                        </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Dragon Roll Premium</h3>
+<span class="text-primary font-headline-sm text-headline-sm">18.50€</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6 flex-grow">
+                            Langostino en tempura, pepino, cobertura de aguacate fresco y salsa unagi artesanal.
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-primary/10">
+<span class="flex gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Sugerencia</span>
+</span>
+<button class="flex items-center gap-2 text-primary hover:gap-3 transition-all">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-label-lg text-label-lg">AÑADIR</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card group flex flex-col h-full">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Elegantly arranged plate of salmon and tuna nigiri on a dark minimalist dish. The fish is glistening with freshness, and a small mound of wasabi is placed perfectly on the side. Atmospheric lighting with deep shadows and warm highlights reflecting the golden theme of the restaurant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLUe1Iu-8kn5rQGGvx1kFA0kQ4KC0X0eX9OzR5OaN11EWpMoEzEfcVIYCOAmJEI-jOpQqx2so1LoTBPbSBFSU10TSElCeOxYyho3WWYTExBZuez1ul41KTf-5bYoUlKhc4o_GnoOmwnbzXXJpgtXIpPDwFEnWt_Bt3iyvCDJcgXiEcqvPde42yPd_hOZuaUYmj4GtRdsACWkYprfUYnRWzYBAKn__Dl0xN6_24F_TZjBnofrGPGLxMihtXuveuDeKv8laz1ERFZA"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Nigiri Sake &amp; Maguro</h3>
+<span class="text-primary font-headline-sm text-headline-sm">14.00€</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6 flex-grow">
+                            Selección de 4 piezas de salmón noruego y atún rojo de almadraba sobre arroz premium.
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-primary/10">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 border border-error text-error text-[10px] font-bold">SPICY</span>
+</div>
+<button class="flex items-center gap-2 text-primary hover:gap-3 transition-all">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-label-lg text-label-lg">AÑADIR</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card group flex flex-col h-full">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Modern Japanese poke bowl with cubes of fresh salmon, edamame, avocado, and shredded carrots. The bowl is made of dark textured stoneware, and the colors of the vegetables pop against the black background. Minimalist aesthetic, luxury food photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_U1EWHn-oynGqjXin2vboljnaQncTHyMm9nbeKHFrNzV0G0e0vMl13QbcsyyuYX18fh7dq1leFIgrZ7DNhcdOEVF4Xo5GU3YVcatNFxwQ_p3YqgeOXGJyAce0TI_ei_BduOmSPzLtPMINW7i7gC0IaGVe3qPYsctbB2Ch_sOaxtGOai5PXY_LAjfIEIe9UUeCHsKaEixZOq-FFN0prEZsJ1rHUZ3mZ6I-WXJPysH-14-zU1EKIxqcmAyF1Ow8R89cuemqFzM61Q"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Salmon Zen Bowl</h3>
+<span class="text-primary font-headline-sm text-headline-sm">16.50€</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6 flex-grow">
+                            Base de arroz shari, salmón marinado, edamame, aguacate y wakame con toque cítrico.
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-primary/10">
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest">Healthy Option</span>
+<button class="flex items-center gap-2 text-primary hover:gap-3 transition-all">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-label-lg text-label-lg">AÑADIR</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-card group flex flex-col h-full">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Pan-fried Japanese gyozas served on a black rectangular plate. The bottoms are perfectly golden and crispy. A small bowl of soy dipping sauce with sesame seeds sits beside them. Lighting is moody and dramatic, focusing on the textures of the dumplings." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3EWL9B_D1iiMgZTjkYjfjq9fc-TGDS64h7nBa2VTa6c6NxG1rPrCa-BnP8BuniY5SH7AQ9akXdLU1BejxIusBqvLhx0SZkJkwIvFhnvgRzRGxFRyR4D2SAD9velH2Ro2GOqnsy3Pv6HfYDvbwzisg4i1YlhgW-NEIA0i9IPgJq2BPSzL6x5nuwUD0LCF18SaWgSn7cFcog-VQ6d95wPysUVO3rsDlLS9tEZU-FjsuCyT2yV-B4VbdWscbEMFoFwo0FVsqSRXE-Q"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Gyoza de Langostino</h3>
+<span class="text-primary font-headline-sm text-headline-sm">9.50€</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6 flex-grow">
+                            Empanadillas japonesas artesanales rellenas de langostino y verduras, acompañadas de salsa ponzu.
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-primary/10">
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest">Entrante</span>
+<button class="flex items-center gap-2 text-primary hover:gap-3 transition-all">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-label-lg text-label-lg">AÑADIR</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="glass-card group flex flex-col h-full">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Detailed close up of California rolls with crab and avocado, coated in white sesame seeds. The rolls are presented in a clean line on a black slate. One roll is picked up by wooden chopsticks in a dynamic action shot. Dark, moody, high-end atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKAuzEyxzbj6nh8GfoHheQsbfpIoq-uDt9H-1X8OKDSRSCXsEOQCDrZNWL4rNRnyj_sBr5SVfAc3jM5eyaTG2LGIQnXFB2UFBrN0cSIFZbh9b-uOasDQCA5sDHApEHPmhafay_rKEVh7iBp5J8hg_7ZPs6q9iStZ5APDpT2C0saQ99blukUoRpM59Kad17AlmF433pF-8c0dqDBkLf3D9FtViwrtmQEu2RoqgJCvn-OhtA2fOj3xNU519NHDUsnOH0N9LHw4FYoA"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">California Mizuki</h3>
+<span class="text-primary font-headline-sm text-headline-sm">15.00€</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6 flex-grow">
+                            Cangrejo real, aguacate, pepino y sésamo negro. Un clásico reinventado con ingredientes premium.
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-primary/10">
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest">Bestseller</span>
+<button class="flex items-center gap-2 text-primary hover:gap-3 transition-all">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-label-lg text-label-lg">AÑADIR</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="glass-card group flex flex-col h-full border-dashed border-primary/30 bg-transparent">
+<div class="flex flex-col items-center justify-center h-full p-12 text-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-4" data-icon="menu_book">menu_book</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Descargar Carta Completa</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-8">Consulta todas nuestras opciones, alérgenos y carta de vinos.</p>
+<button class="bg-primary text-on-primary px-8 py-3 font-label-lg text-label-lg tracking-widest hover:bg-primary-fixed transition-colors">
+                            VER PDF
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<a href="reservas.html" class="fixed bottom-8 right-8 z-50 bg-primary text-on-primary px-6 py-4 rounded-full shadow-2xl flex items-center gap-3 group transition-all hover:pr-8 hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-lg text-label-lg font-bold">RESERVAR MESA</span>
+</a>
+<!-- Footer -->
+<footer class="w-full py-16 bg-surface-container-low border-t border-primary/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="space-y-4">
+<div class="font-headline-sm text-headline-sm text-primary">MIZUKI</div>
+<p class="text-on-surface-variant font-body-md text-body-md">Sushi &amp; Cocktail Bar</p>
+<div class="flex gap-4 pt-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="share">share</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="mail">mail</span></a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="text-primary font-label-lg text-label-lg uppercase tracking-widest">Contacto</h4>
+<p class="text-on-surface-variant font-body-md text-body-md">Av. Palma de Mallorca, 27</p>
+<p class="text-on-surface-variant font-body-md text-body-md">Torremolinos, Málaga</p>
+<p class="text-on-surface-variant font-body-md text-body-md">611 97 69 38</p>
+</div>
+<div class="space-y-4">
+<h4 class="text-primary font-label-lg text-label-lg uppercase tracking-widest">Horario</h4>
+<p class="text-on-surface-variant font-body-md text-body-md">Lunes a Domingo</p>
+<p class="text-on-surface-variant font-body-md text-body-md">13:00 - 00:00</p>
+<p class="text-on-surface-variant font-body-md text-body-md italic">Cocina abierta ininterrumpidamente</p>
+</div>
+<div class="space-y-4">
+<h4 class="text-primary font-label-lg text-label-lg uppercase tracking-widest">Legal</h4>
+<p class="text-on-surface-variant font-body-md text-body-md hover:text-primary cursor-pointer transition-colors">Aviso Legal</p>
+<p class="text-on-surface-variant font-body-md text-body-md hover:text-primary cursor-pointer transition-colors">Privacidad</p>
+<p class="text-on-surface-variant font-body-md text-body-md hover:text-primary cursor-pointer transition-colors">Cookies</p>
+</div>
+</div>
+<div class="mt-16 text-center text-on-surface-variant font-body-md text-body-md opacity-60">
+            © 2024 MIZUKI SUSHI &amp; COCKTAIL. Torremolinos. Todos los derechos reservados.
+        </div>
+</footer>
+<script>
+        // Micro-interaction for category scrolling
+        const container = document.querySelector('.no-scrollbar');
+        container.addEventListener('wheel', (evt) => {
+            evt.preventDefault();
+            container.scrollLeft += evt.deltaY;
+        });
+
+        // Sticky nav scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-background/95');
+                nav.classList.remove('bg-background/80');
+            } else {
+                nav.classList.add('bg-background/80');
+                nav.classList.remove('bg-background/95');
+            }
+        });
+    </script>
+<script>
+        document.body.classList.add('is-entering');
+        document.querySelectorAll('a[href]').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('tel:') && !href.startsWith('mailto:')) {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    document.body.classList.remove('is-entering');
+                    document.body.classList.add('is-leaving');
+                    setTimeout(() => { window.location.href = href; }, 350);
+                });
+            }
+        });
+    </script>
+</body></html>
