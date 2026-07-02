@@ -149,206 +149,84 @@
 <a class="font-label-lg text-label-lg text-primary font-bold border-b border-primary pb-1" href="Cocktail.html">Cocktails</a>
 <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="reservas.html">Reservations</a>
 </div>
-<a href="reservas.html" class="bg-transparent border border-primary text-primary px-6 py-2 font-label-lg hover:bg-primary hover:text-on-primary transition-all duration-300 active:scale-95">
-                RESERVAR MESA
-            </a>
+<div class="flex items-center gap-3"><a href="reservas.html" class="hidden md:inline-flex border border-primary text-primary px-6 py-2 font-label-lg hover:bg-primary hover:text-on-primary transition-all duration-300">RESERVAR MESA</a><button id="hamburger-btn" class="md:hidden text-primary p-1" onclick="toggleMenu()" aria-label="Abrir menu"><span class="material-symbols-outlined" style="font-size:28px;font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24;">menu</span></button></div>
 </div>
 </nav>
-<main class="pt-20">
-<!-- Hero Section -->
-<section class="relative h-[870px] flex items-center overflow-hidden">
-<div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover" data-alt="A cinematic, low-key close-up of a sophisticated artisan cocktail on a dark basalt counter. The drink is garnished with a delicate twist of citrus and a single edible flower, illuminated by warm amber spotlighting that creates a golden glow. The background is dark and moody, emphasizing the crystalline ice and the rich textures of the glassware in a luxury obsidian-themed aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnmcZ4OgyU7BLXPQssUV7yB9oeG8E0QGDRZPHe_qlmMe5QixIdU-QGivQFJhH2Q9KOg3h6d4Wwf6a_l3mwgGF8cd18nBQPZBcF-_FQjqaf-SN0V3gcayllHOnxxp123F1izdBby7IbD36N2Xe9P3cc3INVCGIvTVyu0aKJNSfzjlNsgLEehWi-VjmW5rpgcAhaKhsJX4Uaq5d4G8m_0-qQ8qul1PS230v4zJDjhoO39X9HDhmuVemB0S6fCOC3QHYT5BdKGtIKeg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background-color:#0a0a0a;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.35s ease;">
+<div style="position:absolute;top:1.4rem;left:1.4rem;font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;letter-spacing:0.2em;color:#f2ca50 !important;">MIZUKI</div>
+<button onclick="toggleMenu()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:#f2ca50;cursor:pointer;padding:0.5rem;line-height:1;">
+<span class="material-symbols-outlined" style="font-size:32px;">close</span>
+</button>
+<div style="display:flex;flex-direction:column;align-items:center;gap:2.5rem;text-align:center;padding:1rem;">
+<a href="index.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Home</a>
+<a href="menu.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Men&#250;</a>
+<a href="Cocktail.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Cocktails</a>
+<a href="reservas.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Reservas</a>
 </div>
-<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
-<div class="max-w-2xl">
-<span class="text-primary font-label-lg text-label-lg tracking-[0.3em] uppercase mb-4 block">Craftsmanship in a Glass</span>
-<h1 class="font-display-lg text-display-lg md:text-[80px] text-white mb-6 leading-tight">Mixología <br/><span class="text-primary italic">de Autor</span></h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
-                        Una oda a la alquimia líquida donde lo ancestral se encuentra con lo vanguardista. Descubra nuestra colección exclusiva de destilados y elixires artesanales.
-                    </p>
-<div class="flex space-x-6">
-<a class="bg-primary text-on-primary font-label-lg px-8 py-4 transition-all hover:opacity-90 active:scale-95" href="#creaciones">VER CARTA</a>
-<a class="border-b border-primary text-primary font-label-lg px-2 py-4 hover:tracking-widest transition-all" href="#maridaje">Sugerencias del Chef</a>
+<div style="position:absolute;bottom:3rem;">
+<a href="reservas.html" style="display:inline-block;background:#f2ca50;color:#3c2f00 !important;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;padding:1rem 2.5rem;text-decoration:none;text-transform:uppercase;">RESERVAR MESA</a>
 </div>
 </div>
-</div>
-</section>
-<!-- Clásicos con un Giro -->
-<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<!-- Cervezas -->
 <div>
-<h2 class="font-headline-lg text-headline-lg mb-4">Clásicos con un Giro</h2>
-<p class="font-body-md text-on-surface-variant max-w-md">Reinterpretaciones elegantes de los pilares de la coctelería mundial bajo la visión Mizuki.</p>
-</div>
-<div class="h-[1px] flex-grow bg-outline-variant/20 mx-8 hidden md:block mb-4"></div>
-<span class="font-label-lg text-primary tracking-widest">EST. 2024</span>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-<!-- Item 1 -->
-<div class="flex flex-col space-y-4 group">
-<div class="flex justify-between border-b border-outline-variant/30 pb-2 items-baseline">
-<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">Smoked Negroni</h3>
-<span class="text-primary font-bold">14€</span>
-</div>
-<p class="font-body-md text-on-surface-variant leading-relaxed italic">
-                        Tanqueray No. TEN, Campari infusionado con cacao, Vermut rojo ahumado con madera de cerezo.
-                    </p>
-</div>
-<!-- Item 2 -->
-<div class="flex flex-col space-y-4 group">
-<div class="flex justify-between border-b border-outline-variant/30 pb-2 items-baseline">
-<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">Yuzu Margarita</h3>
-<span class="text-primary font-bold">12€</span>
-</div>
-<p class="font-body-md text-on-surface-variant leading-relaxed italic">
-                        Tequila reposado, licor de naranja artesanal, miel de agave y zumo de yuzu fresco.
-                    </p>
-</div>
-<!-- Item 3 -->
-<div class="flex flex-col space-y-4 group">
-<div class="flex justify-between border-b border-outline-variant/30 pb-2 items-baseline">
-<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">Mizuki Mule</h3>
-<span class="text-primary font-bold">13€</span>
-</div>
-<p class="font-body-md text-on-surface-variant leading-relaxed italic">
-                        Vodka premium, jengibre fermentado en casa, lima y un toque de sake Junmai.
-                    </p>
+<h3 class="font-label-lg text-label-lg text-primary uppercase tracking-widest mb-4">Cervezas</h3>
+<div class="space-y-0">
+<div class="flex justify-between py-3 border-b border-outline-variant/20"><span class="font-body-md text-on-surface">Caña Victoria / Volldamm</span><span class="text-primary font-semibold">2,50€</span></div>
+<div class="flex justify-between py-3 border-b border-outline-variant/20"><span class="font-body-md text-on-surface">Copa Victoria / Volldamm</span><span class="text-primary font-semibold">3,00€</span></div>
+<div class="flex justify-between py-3 border-b border-outline-variant/20"><span class="font-body-md text-on-surface">Victoria 10 · Tercio Victoria · Radler · Azjim · Kiri · Soparo</span><span class="text-primary font-semibold">3,50€</span></div>
+<div class="flex justify-between py-3 border-b border-outline-variant/20"><span class="font-body-md text-on-surface">Pinta Victoria</span><span class="text-primary font-semibold">4,50€</span></div>
+<div class="flex justify-between py-3 border-b border-outline-variant/20"><span class="font-body-md text-on-surface">Pinta Volldamm</span><span class="text-primary font-semibold">5,00€</span></div>
 </div>
 </div>
-</section>
-<!-- Creaciones Mizuki (Bento Style) -->
-<section class="py-24 bg-surface-container-lowest border-y border-outline-variant/10 overflow-hidden" id="creaciones">
-<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="text-center mb-20">
-<h2 class="font-headline-lg text-headline-lg mb-6">Creaciones Mizuki</h2>
-<div class="w-24 h-1 bg-primary mx-auto"></div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[800px]">
-<!-- Large Signature Card -->
-<div class="md:col-span-8 group relative overflow-hidden ghost-border rounded-lg bg-surface">
-<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60" data-alt="A spectacular signature cocktail named The Golden Dragon, served in a crystal coupe with intricate engravings. The drink has a mesmerizing amber hue with edible gold flakes suspended inside. High-contrast, dramatic studio lighting emphasizes the sharp angles of the glassware against a deep black silk background. Golden amber atmospheric lighting creates a sense of ultimate luxury and exclusivity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT4hGc7rMyfKnttdpoyxXfYunQz-HCzAAlsgZrvSdEl3azORVCO3gTYJ5E3OqHEN74-Ha1sdgCvJn_YYpFuHt6Bcz5_MWEajHNHEQoVaMRvhmbxBZDuXOCAzeTZpRCRm2T75UoMBYXceaJhDY6AUpN_9zGCjMQymWzBP-R2T0wMbmhZ7_fhSqfEZYpl13eYI9sUoGEVjo4cAeGVEA9vm_Ydj8fPGdubyv5boj34QsLs1oCsziPzrMFicxLxbowUwCmnjRbQtVfIQ"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-10 max-w-xl">
-<span class="text-primary font-label-sm tracking-widest bg-primary/10 px-3 py-1 mb-4 inline-block">SIGNATURE NO. 1</span>
-<h3 class="font-display-lg text-headline-lg text-white mb-4">The Golden Dragon</h3>
-<p class="font-body-lg text-on-surface-variant mb-6">
-                                Nuestra obra maestra. Ron añejo infusionado con té lapsang souchong, amargos de ciruela japonesa y un ahumado persistente que evoca los templos de Kioto.
-                            </p>
-<span class="font-headline-sm text-primary">18€</span>
-</div>
-</div>
-<!-- Side Stacks -->
-<div class="md:col-span-4 flex flex-col gap-gutter">
-<!-- Card 2 -->
-<div class="flex-1 group relative overflow-hidden ghost-border rounded-lg bg-surface min-h-[300px]">
-<img class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-500" data-alt="A refreshing and elegant cocktail served in a highball glass, featuring layered colors of pale green and clear spirits. Sprigs of fresh mint and slices of cucumber are visible through the condensation on the glass. The mood is sophisticated and clean, with cool lighting accents that contrast beautifully against the dark obsidian theme of Mizuki." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcUW0lkCOy3bachbMen7jMZ7sOWQJUjSq8hvECuLQdMX6iIJKRnMVz9QNTJ6zkV0TgXvoP3IXR2og9Q8KzZdPZFSZeQEB7DTwg4pxztgpl1J463OIhLdkwgM19n86JsY25MhMttVyHeJsthphJ9EYbMlFQIjkqCpohddDIHkBgCaxRQq_mM5wK55O-xqD0_e8ThpbUurrtt6lrOQj_0ZJy1EuL2yuchw1r5Gujy5Wlrgz_18M_X3MwdKLthK2yl3ZHrtA1Z4LPbA"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
-<div class="relative h-full p-8 flex flex-col justify-end">
-<h4 class="font-headline-sm text-white mb-2">Kyoto Garden</h4>
-<p class="font-body-md text-on-surface-variant text-sm mb-4">Ginebra, té matcha, pepino y clara de huevo para una textura de seda.</p>
-<span class="text-primary font-bold">15€</span>
-</div>
-</div>
-<!-- Card 3 -->
-<div class="flex-1 group relative overflow-hidden ghost-border rounded-lg bg-surface min-h-[300px]">
-<img class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-500" data-alt="A dark and intense cocktail in a vintage tumbler, garnished with a burnt cinnamon stick. The drink is a deep ruby red, glowing slightly from within. Minimalist low-key lighting creates deep shadows and highlights the rich textures of the ice and garnish. The overall feel is one of mystery and refined craftsmanship in a dark luxury setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV34Jz5dHFw8wHnU52toum_76Le38-mhDr80UKR3YNVQSmNRqND_GgmTBMvSCZqv7NYBoRr1Qc-N2OsovIDVFkKql4hBLsJqmB4NqeVgw8DB2n3AQ1CGICciphPLrep90YoiAvy1-rxx-uYtJNE7nmbetparEC7zuHk4nDVxc2NT3s4YeaQ-b9LQ3wUmyC-Koq2e8oVb-84mlA0xoZwsMXj2KPgM-WPvXA-H4VCFSV3ssxX8iX4VnG0seSVRAtlHBxppSBFt0_sg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
-<div class="relative h-full p-8 flex flex-col justify-end">
-<h4 class="font-headline-sm text-white mb-2">Shadow of Osaka</h4>
-<p class="font-body-md text-on-surface-variant text-sm mb-4">Whisky japonés Hibiki, licor de mora negra y esencia de madera de cedro.</p>
-<span class="text-primary font-bold">16€</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Maridaje Perfecto -->
-<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="maridaje">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-<div class="relative">
-<div class="absolute -top-10 -left-10 w-40 h-40 border-l border-t border-primary/40 hidden md:block"></div>
-<img class="w-full h-[600px] object-cover rounded-sm ghost-border p-4 bg-surface-container" data-alt="An exquisite sushi platter featuring premium Nigiri and Sashimi presented on a black slate tray. Next to it sits a perfectly matched craft cocktail in a crystal glass. The lighting is focused and warm, highlighting the freshness of the fish and the clarity of the drink. The background is a dark, upscale restaurant environment with subtle golden glints, embodying the high-end Mizuki dining experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdrOCWKisSsyopTw6I_uISYFV2lCv7V4BDgrL6PXccYTkMHcti7lblm6DqWMDkngwcbTR9t4B0LoDrTtcdr1Ju9dUmXWjepGs76yASJAIfbMvQx9ek-DxK64cE8Ph9pvLwDoXIk5irTREoYfRQjAVXCQgMcQisI-Wlz8tTcGn6aQ9koKM2xO0xldM0tBQ-r7XlYUJ4scLtyfVuti724cyRzttvxl9iPmDKqznnFJjRuq7Q0Axu7hvlAgfXwIDFLYSs3za8dhlNlg"/>
-<div class="absolute -bottom-10 -right-10 w-40 h-40 border-r border-b border-primary/40 hidden md:block"></div>
-</div>
-<div class="space-y-10">
-<span class="text-primary font-label-lg tracking-widest block">L'ART DU MARIAGE</span>
-<h2 class="font-headline-lg text-headline-lg leading-tight">La Armonía entre <br/><span class="italic">Sake y Mar</span></h2>
-<div class="space-y-8">
-<div class="flex gap-6 items-start">
-<span class="material-symbols-outlined text-primary text-3xl">restaurant</span>
+<!-- Vinos -->
 <div>
-<h4 class="font-headline-sm mb-2 text-white">Nigiri de Atún &amp; Old Fashioned de Humo</h4>
-<p class="font-body-md text-on-surface-variant">La grasa del atún Toro se funde con las notas ahumadas del whisky para una experiencia umami total.</p>
+<h3 class="font-label-lg text-label-lg text-primary uppercase tracking-widest mb-4">Vinos</h3>
+<div class="space-y-0">
+<div class="flex justify-between py-3 border-b border-outline-variant/20"><span class="font-body-md text-on-surface">Acontia Flor y Nata 12 meses R. Duero (75cl)</span><span class="text-primary font-semibold">4,50€ / 19€</span></div>
+<div class="flex justify-between py-3 border-b border-outline-variant/20"><span class="font-body-md text-on-surface">Acontia Mar de seda Blanco (75cl)</span><span class="text-primary font-semibold">20,00€</span></div>
+<div class="flex justify-between py-3 border-b border-outline-variant/20"><span class="font-body-md text-on-surface">La Vie en Rose (75cl)</span><span class="text-primary font-semibold">25,00€</span></div>
+<div class="flex justify-between py-3 border-b border-outline-variant/20"><span class="font-body-md text-on-surface">Frizzante</span><span class="text-primary font-semibold">4,00€</span></div>
+<div class="flex justify-between py-3 border-b border-outline-variant/20"><span class="font-body-md text-on-surface">Señorío Delizia · Hallazgo Joven</span><span class="text-primary font-semibold">3,50€</span></div>
+<div class="flex justify-between py-3 border-b border-outline-variant/20"><span class="font-body-md text-on-surface">Mumm Champagne</span><span class="text-primary font-semibold">5€ / 55€</span></div>
+<div class="flex justify-between py-3 border-b border-outline-variant/20"><span class="font-body-md text-on-surface">Botani Málaga · Prosecco italiano</span><span class="text-primary font-semibold">22,00€</span></div>
 </div>
 </div>
-<div class="flex gap-6 items-start">
-<span class="material-symbols-outlined text-primary text-3xl">local_bar</span>
+<!-- Combinados -->
 <div>
-<h4 class="font-headline-sm mb-2 text-white">Sashimi de Salmón &amp; Yuzu Martini</h4>
-<p class="font-body-md text-on-surface-variant">La acidez cítrica del yuzu limpia el paladar realzando la frescura del salmón nórdico.</p>
+<h3 class="font-label-lg text-label-lg text-primary uppercase tracking-widest mb-4">Combinados Estándar — 7,50€</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed"><span class="text-on-surface font-semibold">Whiskis:</span> White label · Dyc 8 · J&amp;B · Jameson · Cutty Sark · Four roses · Red label · Ballantines · Southern Comfort</p>
+<p class="font-body-md text-on-surface-variant leading-relaxed mt-2"><span class="text-on-surface font-semibold">Gin:</span> Larios · Tanqueray · Beefeater</p>
+<p class="font-body-md text-on-surface-variant leading-relaxed mt-2"><span class="text-on-surface font-semibold">Ron:</span> Bacardi · Barceló · Brugal · Ron miel · Malibu</p>
+<p class="font-body-md text-on-surface-variant leading-relaxed mt-2"><span class="text-on-surface font-semibold">Vodka:</span> Smirnoff · Absolut</p>
 </div>
 </div>
-<div class="flex gap-6 items-start">
-<span class="material-symbols-outlined text-primary text-3xl">flare</span>
+<!-- Destilados -->
+<div class="mt-16">
+<h3 class="font-label-lg text-label-lg text-primary uppercase tracking-widest mb-8">Destilados Premium</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
 <div>
-<h4 class="font-headline-sm mb-2 text-white">Tempura de Langostino &amp; Champagne Cocktail</h4>
-<p class="font-body-md text-on-surface-variant">Burbujas finas que cortan la textura crujiente de la tempura, elevando el sabor del marisco.</p>
+<h4 class="font-body-md text-on-surface font-semibold mb-3 border-b border-outline-variant/20 pb-2">Ron</h4>
+<p class="font-body-md text-on-surface-variant text-[14px] leading-loose">Bacardi 8 (6,50€) · Sailor Jerry (7€) · Havana 7 (7€) · Abuelo 7 (7€) · Legendario (7€) · Kraken (7,50€) · Cacique 500 (7,50€) · Matusalem 15 (7,50€) · Santa Teresa 1796 (8€) · Don Q Spice (8€) · Diplomático Mantuano (8€) · Barceló Imperial (9€) · Brugal 1888 (8€) · Zacapa 23 (10€) · Don Q Gran Añejo (16€) · Zacapa XO (16€) · Brugal Siglo de Oro (20€)</p>
+</div>
+<div>
+<h4 class="font-body-md text-on-surface font-semibold mb-3 border-b border-outline-variant/20 pb-2">Ginebras</h4>
+<p class="font-body-md text-on-surface-variant text-[14px] leading-loose">Bombay Sapphire (6,50€) · Seagram's (6,50€) · Larios 12 (6,50€) · Tanqueray 0,0 (6,50€) · Bulldog (7€) · Tanqueray (7€) · Puerto de Indias (7,50€) · Martin Miller's (8€) · Star of Bombay (8€) · Ginabelle (8€) · Monkey (8€) · Beefeater 24 (8€) · Hendrick's (8€) · London N°1 (8€) · Tanqueray Ten (8€) · Nordés (8€) · Gin Mare (8€) · Citadelle (8€) · Roku (8€) · G'Vine (9,50€) · Brockman's (9,50€)</p>
+</div>
+<div>
+<h4 class="font-body-md text-on-surface font-semibold mb-3 border-b border-outline-variant/20 pb-2">Whisky</h4>
+<p class="font-body-md text-on-surface-variant text-[14px] leading-loose">Dewar's (7,50€) · Four Roses Small (7,50€) · Chivas 12 (7,50€) · Black Label (7,50€) · Jack Daniel's (7,50€) · Cardhu 12 (8€) · Macallan (12€)</p>
+<h4 class="font-body-md text-on-surface font-semibold mb-3 border-b border-outline-variant/20 pb-2 mt-6">Japonés</h4>
+<p class="font-body-md text-on-surface-variant text-[14px] leading-loose">Hibiki (10€) · Woodford (9€) · Nikka From (10€)</p>
+<h4 class="font-body-md text-on-surface font-semibold mb-3 border-b border-outline-variant/20 pb-2 mt-6">Vodka</h4>
+<p class="font-body-md text-on-surface-variant text-[14px] leading-loose">Absolut (7€) · Grey Goose (7€) · Beluga (8€)</p>
+<h4 class="font-body-md text-on-surface font-semibold mb-3 border-b border-outline-variant/20 pb-2 mt-6">Brandy · Tequila · Mezcal</h4>
+<p class="font-body-md text-on-surface-variant text-[14px] leading-loose">Torres 15 (7€) · Brandy 1885 (9€) · Ysabel Regina (12€) · Patrón café (7€) · Patrón Silver (9€) · Los Danzantes reposado (9€)</p>
 </div>
 </div>
-</div>
-</div>
-</div>
-</section>
-<!-- Atmosphere Gallery -->
-<section class="py-24 bg-surface-container-low">
-<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="flex justify-between items-center mb-12">
-<h2 class="font-headline-md text-headline-md">El Santuario</h2>
-<a class="text-primary font-label-lg group flex items-center gap-2" href="#">
-                        EXPLORAR ESPACIOS 
-                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_right_alt</span>
-</a>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 h-[400px]">
-<div class="overflow-hidden rounded-sm">
-<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" data-alt="A close-up of a dimly lit, high-end cocktail bar with rows of premium spirit bottles glowing under amber accent lights. The surface of the bar is dark polished wood, reflecting the warm highlights. The atmosphere is quiet, intimate, and luxurious, characteristic of the Mizuki obsidian aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsQ58ePJkVdofuWXEppdhlpJzsfcrZf1VTMR_d-ZHlO9LvRpeWz_kWGO84xrlb6AWfxKe_prxC3cKz9IrW7bGbdXFrE4c2W3xFGsAgR9Y5yM_936ziAV6R2uiLa0fcqRMTTfYYHghybep8UTA6Bedh9NjFozXU-mpmPvjlIbnUrMkpAXjPS9WCu2eFzUywwkIBIQE6TbqEciAB9EsHYp01-ViC-XHaTxIV_W1mjPkWxT30SDUo_bK40H7s0RNPzieECy4SdZ7s6w"/>
-</div>
-<div class="overflow-hidden rounded-sm">
-<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" data-alt="A skilled bartender's hands preparing a drink, seen through a cloud of aromatic smoke. The scene is illuminated by a single overhead spotlight, casting dramatic shadows. The focus is on the motion and the artisan nature of cocktail making in a high-discerning restaurant setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPIneYLRh0ipPEc3xtpwyqR43emfNaCs4YcFiUS7hDL_YP1a3oXUjMPGJrQ2TGC9wiePIgOEyp_zeZQkWszM66XvwtKdGq0wXMzBV70BMpgzrOSzWdiMT2ayEDps0orbUN2Ldp4a4So-Bnx0vCp1-RkdBdnzHmqOHlyfqn60bQqiQQMK5dzHU-h9AZDsCR_0twGscGrW7A2XVeo8vyANLsnOyCFsarsP-Y5qwMPo7bH-JkYgck6QAcMZq_CmZsivaT6Xx1RtgrBA"/>
-</div>
-<div class="overflow-hidden rounded-sm">
-<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" data-alt="Interior shot of a luxury restaurant with dark walls, minimalist Japanese decor, and soft golden floor lighting. The space is vast yet intimate, with focused lights on each table creating a sanctuary-like atmosphere. The color palette consists of deep blacks and warm ambers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCceTBTEiWqZ_4aI9CvEm859Ect6z-zt3B9vtwLjyuWs4k5WLny-KqpyMVhEIBJbJHGprnbaqMvo_fvfG7eaeGV31IBJqVYk4N0WvPJApd8UovJH2NZ1FoXsIfOdbr4D0Ns74ZF7IWj1Cbjme7tGvs_-OUZxbs6kQCKWOcNN4HmMFowI3UZkJU0gcisVVhXMJRoG3R1VsGWByueoj5QUHPcm4LTmibpV_i4mB8o2EtrfeuQLYqNS9OSd8S8eTlSqPbEEjv2cZ3bEA"/>
-</div>
-<div class="overflow-hidden rounded-sm">
-<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" data-alt="Detailed shot of a textured black wall with a golden Mizuki logo illuminated by a small pin light. The craftsmanship and minimalist luxury are evident in the materials and the precise lighting. Atmosphere of quiet confidence and exclusivity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXhmzwKTKD8DGuft20_NQzwnUcLrBKsm5GNRxjJCiiw9PwPfvRF6h2F_Z_uowv9gk2lmLZ6jRCGlMNSskOM8bwYAx8bc7cq3KxMo_MzIEU-bXj0UbUZw47a6YuHhZEupbYltZ1XFrNra4ESmYzpU_YU5mWfefOLvPADvPagjovBdxVA7THj2WhRPwpPSw7r9MdkeGSPzNjIvCeLUZOJn8bYGPmV_t6XlLxQY5Co4S9KztIL8SUkYg9eTUQjoVDlDyaNfP3AFupHQ"/>
-</div>
-</div>
+<p class="mt-8 text-on-surface-variant text-[13px] italic">Cognacs y licores estándar (4,50€) · Licores sin alcohol (3,50€) · Licores con alcohol (4€) · Chupitos estándar (2,50€) · Chupitos premium (S/P)</p>
 </div>
 </section>
-<!-- CTA Section -->
-<section class="relative py-32 overflow-hidden bg-background">
-<div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-<span class="text-[20vw] font-display-lg text-primary select-none">MIZUKI</span>
-</div>
-<div class="relative z-10 text-center px-margin-mobile">
-<h2 class="font-headline-lg text-headline-lg mb-8 text-white">¿Listo para una velada extraordinaria?</h2>
-<p class="font-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
-                    Asegure su lugar en nuestra barra para presenciar el arte de la mixología en directo. Plazas limitadas cada noche.
-                </p>
-<div class="flex flex-col sm:flex-row justify-center gap-6">
-<a href="reservas.html" class="bg-primary text-on-primary font-label-lg px-12 py-5 hover:bg-white hover:text-black transition-all transform hover:-translate-y-1">
-                        RESERVA TU BARRA
-                    </a>
-<button class="bg-transparent border border-outline text-on-surface font-label-lg px-12 py-5 hover:bg-surface-variant transition-all transform hover:-translate-y-1">
-                        VER HORARIOS
-                    </button>
-</div>
-</div>
-</section>
-</main>
 <!-- Footer -->
 <footer class="w-full py-16 bg-surface-container-low border-t border-primary/20">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
@@ -358,7 +236,7 @@
 </div>
 <div class="flex flex-col space-y-4">
 <h5 class="font-label-lg text-white">UBICACIÓN</h5>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Av. Palma de Mallorca, 27</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="https://maps.app.goo.gl/qXTERytdVipcLQKj7" target="_blank" rel="noopener">Av. Palma de Mallorca, 27</a>
 <span class="font-body-md text-on-surface-variant">Torremolinos, Málaga</span>
 </div>
 <div class="flex flex-col space-y-4">
@@ -430,11 +308,13 @@
     </script>
 <script>
         document.body.classList.add('is-entering');
+        setTimeout(function(){ document.body.classList.remove('is-entering'); }, 500);
         document.querySelectorAll('a[href]').forEach(link => {
             const href = link.getAttribute('href');
             if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('tel:') && !href.startsWith('mailto:')) {
                 link.addEventListener('click', e => {
                     e.preventDefault();
+                    var mob=document.getElementById('mobile-menu');if(mob&&mob._open){mob.style.transform='translateX(100%)';mob._open=false;document.body.style.overflow='';}
                     document.body.classList.remove('is-entering');
                     document.body.classList.add('is-leaving');
                     setTimeout(() => { window.location.href = href; }, 350);
@@ -442,4 +322,25 @@
             }
         });
     </script>
+<script>
+function toggleMenu() {
+  var m = document.getElementById('mobile-menu');
+  if (!m) return;
+  if (m._open) {
+    m.style.opacity = '0';
+    setTimeout(function(){ m.style.display = 'none'; }, 350);
+    m._open = false;
+    document.body.style.overflow = '';
+  } else {
+    m.style.display = 'flex';
+    setTimeout(function(){ m.style.opacity = '1'; }, 10);
+    m._open = true;
+    document.body.style.overflow = 'hidden';
+  }
+}
+document.querySelectorAll('#mobile-menu a').forEach(function(a) {
+  a.addEventListener('mouseover', function(){ this.style.color='#f2ca50'; });
+  a.addEventListener('mouseout', function(){ this.style.color='#eae1d4'; });
+});
+</script>
 </body></html>

@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -102,57 +101,20 @@
         }
     </script>
 <style>
-        body {
-            background-color: #0A0A0A;
-            color: #eae1d4;
-            overflow-x: hidden;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-card {
-            background: #141414;
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glass-card:hover {
-            border-color: #f2ca50;
-            box-shadow: 0 0 20px rgba(242, 202, 80, 0.08);
-            transform: translateY(-4px);
-        }
-        .sidebar-item-active {
-            background: rgba(212, 175, 55, 0.1);
-            border-right: 3px solid #f2ca50;
-            color: #f2ca50;
-        }
-        .gold-underline::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: #f2ca50;
-            transition: width 0.3s ease;
-        }
-        .gold-underline:hover::after {
-            width: 100%;
-        }
+        body { background-color: #0A0A0A; color: #eae1d4; overflow-x: hidden; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .sidebar-item-active { background: rgba(212,175,55,0.1); border-right: 3px solid #f2ca50; color: #f2ca50; }
+        .menu-row { border-bottom: 1px solid rgba(77,70,53,0.25); }
+        .menu-row:hover span.name { color: #f2ca50; }
         html { overflow-x: hidden; }
-        @keyframes pageSlideIn {
-            from { transform: translateX(6%); opacity: 0; }
-            to   { transform: translateX(0);  opacity: 1; }
-        }
-        @keyframes pageSlideOut {
-            from { transform: translateX(0);   opacity: 1; }
-            to   { transform: translateX(-6%); opacity: 0; }
-        }
-        body.is-entering { animation: pageSlideIn  0.45s cubic-bezier(0.4,0,0.2,1) both; }
-        body.is-leaving  { animation: pageSlideOut 0.35s cubic-bezier(0.4,0,0.2,1) both; pointer-events: none; }
+        @keyframes pageSlideIn { from { transform: translateX(6%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        @keyframes pageSlideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(-6%); opacity: 0; } }
+        body.is-entering { animation: pageSlideIn 0.45s cubic-bezier(0.4,0,0.2,1) both; }
+        body.is-leaving { animation: pageSlideOut 0.35s cubic-bezier(0.4,0,0.2,1) both; pointer-events: none; }
     </style>
 </head>
 <body class="font-body-md bg-background">
-<!-- TopNavBar (Fixed) -->
+<!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/20">
 <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
 <a href="index.html" class="font-headline-md text-headline-md tracking-widest text-primary">MIZUKI</a>
@@ -162,16 +124,30 @@
 <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-lg text-label-lg" href="Cocktail.html">Cocktails</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-lg text-label-lg" href="reservas.html">Reservations</a>
 </div>
-<a href="reservas.html" class="bg-transparent border border-primary text-primary px-6 py-2 rounded-none font-label-lg text-label-lg hover:bg-primary hover:text-on-primary transition-all duration-300">
-                RESERVAR MESA
-            </a>
+<div class="flex items-center gap-3"><a href="reservas.html" class="hidden md:inline-flex border border-primary text-primary px-6 py-2 font-label-lg text-label-lg hover:bg-primary hover:text-on-primary transition-all duration-300">RESERVAR MESA</a><button id="hamburger-btn" class="md:hidden text-primary p-1" onclick="toggleMenu()" aria-label="Abrir menu"><span class="material-symbols-outlined" style="font-size:28px;font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24;">menu</span></button></div>
 </div>
 </nav>
-<!-- SideNavBar (Desktop Only) -->
+<!-- Mobile Menu -->
+<div id="mobile-menu" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background-color:#0a0a0a;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.35s ease;">
+<div style="position:absolute;top:1.4rem;left:1.4rem;font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;letter-spacing:0.2em;color:#f2ca50 !important;">MIZUKI</div>
+<button onclick="toggleMenu()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:#f2ca50;cursor:pointer;padding:0.5rem;line-height:1;">
+<span class="material-symbols-outlined" style="font-size:32px;">close</span>
+</button>
+<div style="display:flex;flex-direction:column;align-items:center;gap:2.5rem;text-align:center;padding:1rem;">
+<a href="index.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Home</a>
+<a href="menu.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Men&#250;</a>
+<a href="Cocktail.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Cocktails</a>
+<a href="reservas.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Reservas</a>
+</div>
+<div style="position:absolute;bottom:3rem;">
+<a href="reservas.html" style="display:inline-block;background:#f2ca50;color:#3c2f00 !important;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;padding:1rem 2.5rem;text-decoration:none;text-transform:uppercase;">RESERVAR MESA</a>
+</div>
+</div>
+<!-- SideNav -->
 <aside class="hidden lg:flex flex-col h-screen w-64 fixed left-0 top-0 pt-24 pb-8 px-4 bg-surface-container-lowest border-r border-outline-variant/20 z-40">
 <div class="flex items-center gap-3 px-4 mb-10">
 <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary" data-icon="restaurant">restaurant</span>
+<span class="material-symbols-outlined text-primary">restaurant</span>
 </div>
 <div>
 <p class="font-headline-sm text-[18px] text-primary leading-tight">MIZUKI</p>
@@ -179,204 +155,287 @@
 </div>
 </div>
 <nav class="flex-grow space-y-2">
-<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/10 transition-all" href="index.html">
-<span class="material-symbols-outlined" data-icon="home">home</span>
-<span class="font-body-lg text-body-lg">Home</span>
-</a>
-<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/10 transition-all sidebar-item-active" href="menu.html">
-<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
-<span class="font-body-lg text-body-lg">Menu</span>
-</a>
-<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/10 transition-all" href="Cocktail.html">
-<span class="material-symbols-outlined" data-icon="local_bar">local_bar</span>
-<span class="font-body-lg text-body-lg">Cocktails</span>
-</a>
-<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/10 transition-all" href="reservas.html">
-<span class="material-symbols-outlined" data-icon="event">event</span>
-<span class="font-body-lg text-body-lg">Reservations</span>
-</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/10 transition-all" href="index.html"><span class="material-symbols-outlined">home</span><span class="font-body-lg text-body-lg">Home</span></a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/10 transition-all sidebar-item-active" href="menu.html"><span class="material-symbols-outlined">restaurant_menu</span><span class="font-body-lg text-body-lg">Menu</span></a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/10 transition-all" href="Cocktail.html"><span class="material-symbols-outlined">local_bar</span><span class="font-body-lg text-body-lg">Cocktails</span></a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/10 transition-all" href="reservas.html"><span class="material-symbols-outlined">event</span><span class="font-body-lg text-body-lg">Reservations</span></a>
 </nav>
-<div class="mt-auto px-4">
-<div class="p-4 bg-surface-container-high rounded-lg border border-primary/10">
-<p class="text-primary font-label-sm text-label-sm mb-2">PROMO DEL DÍA</p>
-<p class="text-on-surface font-body-md text-body-md">-15% en Sushi Sets</p>
-</div>
-</div>
 </aside>
 <main class="lg:pl-64 pt-24 min-h-screen">
-<!-- Hero Section / Menu Header -->
+<!-- Hero -->
 <section class="px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
 <div class="flex flex-col md:flex-row gap-12 items-center">
 <div class="w-full md:w-1/2 relative h-[400px] overflow-hidden group">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close up professional photography of three premium sushi rolls arranged artistically on a black slate background. The lighting is low-key with sharp highlights on the fresh salmon, tuna, and wasabi toppings. The atmosphere is sophisticated and high-end, featuring a dark mode luxury aesthetic with warm golden accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATQU0JI_sjrqHiEhPj3gvJUC-Y1M_lhfFTFJYKx9AUZ_aJA4tj2XHsT8EE8E-xK03BsEhzovopo5tINTkQe5h_mbyA8GPv7-Q6m_6nlLoo4nv_5sNT1_kfoyAXA74e8q1qfTMcPVbIaFG8xHupNadeEQDsjwJUrmOi3teg8h5N-6JBg3vbGM35zJV1dBHv2hh394QKNtu5wzHh5w60k3iXfurA6lKLFDHLIMfHoH0XMOd_uoKKvpl1TB9qiIRJi3VN5LqLUCY3rA"/>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="mizuki-sushi-carrusel-hero.jpeg" alt="Sushi Mizuki"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
 </div>
 <div class="w-full md:w-1/2">
 <h2 class="text-on-surface-variant uppercase tracking-[0.3em] font-label-lg text-label-lg mb-4">RESTAURANTE JAPONÉS</h2>
 <h1 class="font-display-lg text-display-lg md:text-[80px] text-on-surface mb-6">MIZUKI</h1>
 <p class="font-headline-sm text-headline-sm text-primary mb-6 italic">Diseño Minimalista, Máximo Sabor</p>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md leading-relaxed mb-8">
-                        Bienvenidos a Mizuki, donde ofrecemos una experiencia auténtica de sushi creada por nuestros maestros. Ingredientes de la más alta calidad traídos diariamente.
-                    </p>
-<a class="inline-flex items-center gap-4 text-primary font-label-lg text-label-lg group" href="#menu-grid">
-                        EXPLORAR CARTA
-                        <span class="w-12 h-12 rounded-full border border-primary flex items-center justify-center transition-all group-hover:bg-primary group-hover:text-on-primary">
-<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-</span>
-</a>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md leading-relaxed mb-8">Bienvenidos a Mizuki, donde ofrecemos una experiencia auténtica de sushi creada por nuestros maestros. Ingredientes de la más alta calidad traídos diariamente.</p>
+<a class="inline-flex items-center gap-4 text-primary font-label-lg text-label-lg group" href="#menu-grid">EXPLORAR CARTA <span class="w-12 h-12 rounded-full border border-primary flex items-center justify-center transition-all group-hover:bg-primary group-hover:text-on-primary"><span class="material-symbols-outlined">arrow_forward</span></span></a>
 </div>
 </div>
 </section>
-<!-- Category Selector -->
-<section class="sticky top-[72px] z-30 bg-background/95 backdrop-blur-md py-6 border-b border-primary/10 px-margin-mobile md:px-margin-desktop">
-<div class="max-w-container-max mx-auto flex overflow-x-auto no-scrollbar gap-8 items-center scroll-smooth">
-<button class="whitespace-nowrap font-label-lg text-label-lg text-primary border-b-2 border-primary pb-2 px-1">SUSHI ROLLS</button>
-<button class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">NIGIRI &amp; SASHIMI</button>
-<button class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">ENTRANTES</button>
-<button class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">POKES &amp; BOWLS</button>
-<button class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">POSTRES</button>
-<button class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">BEBIDAS</button>
+<!-- Category Nav -->
+<section class="sticky top-[72px] z-30 bg-background/95 backdrop-blur-md py-4 border-b border-primary/10 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto flex overflow-x-auto no-scrollbar gap-6 items-center">
+<a href="#entrantes" class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">ENTRANTES</a>
+<a href="#tiraditos" class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">TIRADITOS</a>
+<a href="#sashimis" class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">SASHIMIS</a>
+<a href="#nigiris" class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">NIGIRIS</a>
+<a href="#makis" class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">MAKIS</a>
+<a href="#rolls" class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">ROLLS</a>
+<a href="#pokes" class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">POKES &amp; RAMEN</a>
+<a href="#platos" class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">PLATOS</a>
+<a href="#postres" class="whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors pb-2 px-1">POSTRES</a>
 </div>
 </section>
-<!-- Menu Grid -->
-<section class="px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto" id="menu-grid">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-<!-- Card 1: Featured -->
-<div class="glass-card group flex flex-col h-full">
-<div class="relative h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A macro shot of a Dragon Roll sushi platter on a minimalist dark ceramic plate. The roll is drizzled with unagi sauce and topped with thin slices of avocado and bright orange masago. Soft lighting emphasizes the texture of the rice and the shine of the sauce. Luxury restaurant presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1K1WZwjhO_G5UyXvRaftNN71dxMfhi9HLfbWhYjcrrBCb2-DuiCUF7A_uEcIkYXVfAX8oY4EGai-E_pC184NPylo_CE9TCcWvscok4ZP8-rxtX01ODypu82KkuFNqb8DI0mkBNVBM5LgdHJuxW_2aNsLzVRTbYT9kBNRhSH5eEOOtDu_7rfyCIDwbV371ltyVg-YAHNr98hmRCxajhhmnJM0KDGAUbRxmHufbLk3M65EViEDYqdSpmU7sW6yr4BpgVR6wMw_FZg"/>
-<div class="absolute top-4 left-4 bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1 flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]" data-icon="star" data-weight="fill">star</span>
-                            CHEF'S PICK
-                        </div>
-</div>
-<div class="p-6 flex flex-col flex-grow">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Dragon Roll Premium</h3>
-<span class="text-primary font-headline-sm text-headline-sm">18.50€</span>
-</div>
-<p class="text-on-surface-variant font-body-md text-body-md mb-6 flex-grow">
-                            Langostino en tempura, pepino, cobertura de aguacate fresco y salsa unagi artesanal.
-                        </p>
-<div class="flex justify-between items-center pt-4 border-t border-primary/10">
-<span class="flex gap-1">
-<span class="w-2 h-2 rounded-full bg-secondary"></span>
-<span class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Sugerencia</span>
-</span>
-<button class="flex items-center gap-2 text-primary hover:gap-3 transition-all">
-<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
-<span class="font-label-lg text-label-lg">AÑADIR</span>
-</button>
+<!-- Menu Content -->
+<section class="px-margin-mobile md:px-margin-desktop py-16 max-w-container-max mx-auto" id="menu-grid">
+
+<!-- ENTRANTES -->
+<div class="mb-20 scroll-mt-40" id="entrantes">
+<div class="flex items-center gap-6 mb-8"><h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest whitespace-nowrap">Entrantes</h2><div class="flex-grow h-px bg-primary/20"></div></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Sopa miso <span class="text-on-surface-variant text-[13px]">/ picante</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">5,50€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Edamame <span class="text-on-surface-variant text-[13px]">/ picante</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">5,50€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Pan brioche con ventresca <span class="text-on-surface-variant text-[13px]">(1 ud)</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">6,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Harumaki de langostinos <span class="text-on-surface-variant text-[13px]">(1 ud)</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">4,50€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Bolitas de rusa</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">6,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Ensalada de alga wakame</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">5,50€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Gyoza de pollo y verduras <span class="text-on-surface-variant text-[13px]">(4 uds)</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">5,50€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Gyoza de gamba y verduras <span class="text-on-surface-variant text-[13px]">(4 uds)</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">5,50€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group md:col-span-2"><span class="name font-body-lg text-on-surface transition-colors">Tempura langostino <span class="text-on-surface-variant text-[13px]">(6 uds)</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">15,00€</span></div>
 </div>
 </div>
-</div>
-<!-- Card 2 -->
-<div class="glass-card group flex flex-col h-full">
-<div class="relative h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Elegantly arranged plate of salmon and tuna nigiri on a dark minimalist dish. The fish is glistening with freshness, and a small mound of wasabi is placed perfectly on the side. Atmospheric lighting with deep shadows and warm highlights reflecting the golden theme of the restaurant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLUe1Iu-8kn5rQGGvx1kFA0kQ4KC0X0eX9OzR5OaN11EWpMoEzEfcVIYCOAmJEI-jOpQqx2so1LoTBPbSBFSU10TSElCeOxYyho3WWYTExBZuez1ul41KTf-5bYoUlKhc4o_GnoOmwnbzXXJpgtXIpPDwFEnWt_Bt3iyvCDJcgXiEcqvPde42yPd_hOZuaUYmj4GtRdsACWkYprfUYnRWzYBAKn__Dl0xN6_24F_TZjBnofrGPGLxMihtXuveuDeKv8laz1ERFZA"/>
-</div>
-<div class="p-6 flex flex-col flex-grow">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Nigiri Sake &amp; Maguro</h3>
-<span class="text-primary font-headline-sm text-headline-sm">14.00€</span>
-</div>
-<p class="text-on-surface-variant font-body-md text-body-md mb-6 flex-grow">
-                            Selección de 4 piezas de salmón noruego y atún rojo de almadraba sobre arroz premium.
-                        </p>
-<div class="flex justify-between items-center pt-4 border-t border-primary/10">
-<div class="flex gap-2">
-<span class="px-2 py-0.5 border border-error text-error text-[10px] font-bold">SPICY</span>
-</div>
-<button class="flex items-center gap-2 text-primary hover:gap-3 transition-all">
-<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
-<span class="font-label-lg text-label-lg">AÑADIR</span>
-</button>
+
+<!-- TIRADITOS -->
+<div class="mb-20 scroll-mt-40" id="tiraditos">
+<div class="flex items-center gap-6 mb-8"><h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest whitespace-nowrap">Tiraditos</h2><div class="flex-grow h-px bg-primary/20"></div><span class="text-on-surface-variant font-label-lg text-label-lg whitespace-nowrap">8 uds</span></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Salmón</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">13,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Atún</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">15,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Toro <span class="text-on-surface-variant text-[13px]">(ventresca de atún)</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">16,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Pez limón</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">14,00€</span></div>
 </div>
 </div>
+
+<!-- SASHIMIS / TATAKI / CEVICHE / TARTAR -->
+<div class="mb-20 scroll-mt-40" id="sashimis">
+<div class="flex items-center gap-6 mb-8"><h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest whitespace-nowrap">Sashimis</h2><div class="flex-grow h-px bg-primary/20"></div><span class="text-on-surface-variant font-label-lg text-label-lg whitespace-nowrap">4 uds</span></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Salmón</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">10,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Atún</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">12,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Toro</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">13,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Pez mantequilla</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">10,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Sashimi carabinero <span class="text-on-surface-variant text-[13px]">(1 ud)</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">18,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Moriwase <span class="text-on-surface-variant text-[13px]">(16 uds)</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">26,00€</span></div>
 </div>
-<!-- Card 3 -->
-<div class="glass-card group flex flex-col h-full">
-<div class="relative h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Modern Japanese poke bowl with cubes of fresh salmon, edamame, avocado, and shredded carrots. The bowl is made of dark textured stoneware, and the colors of the vegetables pop against the black background. Minimalist aesthetic, luxury food photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_U1EWHn-oynGqjXin2vboljnaQncTHyMm9nbeKHFrNzV0G0e0vMl13QbcsyyuYX18fh7dq1leFIgrZ7DNhcdOEVF4Xo5GU3YVcatNFxwQ_p3YqgeOXGJyAce0TI_ei_BduOmSPzLtPMINW7i7gC0IaGVe3qPYsctbB2Ch_sOaxtGOai5PXY_LAjfIEIe9UUeCHsKaEixZOq-FFN0prEZsJ1rHUZ3mZ6I-WXJPysH-14-zU1EKIxqcmAyF1Ow8R89cuemqFzM61Q"/>
+<div class="mt-10">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Tataki</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Salmón</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">16,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Atún rojo <span class="text-on-surface-variant text-[13px]">/ picante</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">18,00€</span></div>
 </div>
-<div class="p-6 flex flex-col flex-grow">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Salmon Zen Bowl</h3>
-<span class="text-primary font-headline-sm text-headline-sm">16.50€</span>
 </div>
-<p class="text-on-surface-variant font-body-md text-body-md mb-6 flex-grow">
-                            Base de arroz shari, salmón marinado, edamame, aguacate y wakame con toque cítrico.
-                        </p>
-<div class="flex justify-between items-center pt-4 border-t border-primary/10">
-<span class="text-[10px] text-on-surface-variant uppercase tracking-widest">Healthy Option</span>
-<button class="flex items-center gap-2 text-primary hover:gap-3 transition-all">
-<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
-<span class="font-label-lg text-label-lg">AÑADIR</span>
-</button>
+<div class="mt-10">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Ceviche</h3>
+<div class="menu-row py-4 group">
+<div class="flex justify-between items-baseline"><span class="name font-body-lg text-on-surface transition-colors">Ceviche clásico Mizuki</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">17,00€</span></div>
+<p class="text-on-surface-variant text-[13px] mt-1 italic">Pescado blanco, apio, cebolla roja y blanca, jengibre, lima, boniato, maíz dulce, jalapeño, cilantro, aceite de oliva</p>
+</div>
+</div>
+<div class="mt-10">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Tartar</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Salmón</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">17,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Atún rojo <span class="text-on-surface-variant text-[13px]">/ picante</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">20,00€</span></div>
 </div>
 </div>
 </div>
-<!-- Card 4 -->
-<div class="glass-card group flex flex-col h-full">
-<div class="relative h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Pan-fried Japanese gyozas served on a black rectangular plate. The bottoms are perfectly golden and crispy. A small bowl of soy dipping sauce with sesame seeds sits beside them. Lighting is moody and dramatic, focusing on the textures of the dumplings." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3EWL9B_D1iiMgZTjkYjfjq9fc-TGDS64h7nBa2VTa6c6NxG1rPrCa-BnP8BuniY5SH7AQ9akXdLU1BejxIusBqvLhx0SZkJkwIvFhnvgRzRGxFRyR4D2SAD9velH2Ro2GOqnsy3Pv6HfYDvbwzisg4i1YlhgW-NEIA0i9IPgJq2BPSzL6x5nuwUD0LCF18SaWgSn7cFcog-VQ6d95wPysUVO3rsDlLS9tEZU-FjsuCyT2yV-B4VbdWscbEMFoFwo0FVsqSRXE-Q"/>
+
+<!-- NIGIRIS -->
+<div class="mb-20 scroll-mt-40" id="nigiris">
+<div class="flex items-center gap-6 mb-8"><h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest whitespace-nowrap">Nigiris</h2><div class="flex-grow h-px bg-primary/20"></div><span class="text-on-surface-variant font-label-lg text-label-lg whitespace-nowrap">2 uds</span></div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Fríos</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 mb-10">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Salmón</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">5,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Atún rojo <span class="text-on-surface-variant text-[13px]">/ picante</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">6,50€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Toro con caviar</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">7,50€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Pez mantequilla trufa</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">7,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Negitoro</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">7,00€</span></div>
 </div>
-<div class="p-6 flex flex-col flex-grow">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Gyoza de Langostino</h3>
-<span class="text-primary font-headline-sm text-headline-sm">9.50€</span>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Calientes</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 mb-10">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Salmón</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">6,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Toro foie</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">9,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Toro trufa</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">9,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Anguila foie</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">9,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Anguila trufa</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">9,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Vieira trufa picante</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">8,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Pez mantequilla trufa <span class="text-on-surface-variant text-[13px]">/ picante</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">7,50€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Huevos de codorniz con ventresca</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">9,00€</span></div>
 </div>
-<p class="text-on-surface-variant font-body-md text-body-md mb-6 flex-grow">
-                            Empanadillas japonesas artesanales rellenas de langostino y verduras, acompañadas de salsa ponzu.
-                        </p>
-<div class="flex justify-between items-center pt-4 border-t border-primary/10">
-<span class="text-[10px] text-on-surface-variant uppercase tracking-widest">Entrante</span>
-<button class="flex items-center gap-2 text-primary hover:gap-3 transition-all">
-<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
-<span class="font-label-lg text-label-lg">AÑADIR</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Card 5 -->
-<div class="glass-card group flex flex-col h-full">
-<div class="relative h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Detailed close up of California rolls with crab and avocado, coated in white sesame seeds. The rolls are presented in a clean line on a black slate. One roll is picked up by wooden chopsticks in a dynamic action shot. Dark, moody, high-end atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKAuzEyxzbj6nh8GfoHheQsbfpIoq-uDt9H-1X8OKDSRSCXsEOQCDrZNWL4rNRnyj_sBr5SVfAc3jM5eyaTG2LGIQnXFB2UFBrN0cSIFZbh9b-uOasDQCA5sDHApEHPmhafay_rKEVh7iBp5J8hg_7ZPs6q9iStZ5APDpT2C0saQ99blukUoRpM59Kad17AlmF433pF-8c0dqDBkLf3D9FtViwrtmQEu2RoqgJCvn-OhtA2fOj3xNU519NHDUsnOH0N9LHw4FYoA"/>
-</div>
-<div class="p-6 flex flex-col flex-grow">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-sm text-headline-sm text-on-surface">California Mizuki</h3>
-<span class="text-primary font-headline-sm text-headline-sm">15.00€</span>
-</div>
-<p class="text-on-surface-variant font-body-md text-body-md mb-6 flex-grow">
-                            Cangrejo real, aguacate, pepino y sésamo negro. Un clásico reinventado con ingredientes premium.
-                        </p>
-<div class="flex justify-between items-center pt-4 border-t border-primary/10">
-<span class="text-[10px] text-on-surface-variant uppercase tracking-widest">Bestseller</span>
-<button class="flex items-center gap-2 text-primary hover:gap-3 transition-all">
-<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
-<span class="font-label-lg text-label-lg">AÑADIR</span>
-</button>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Gunkan</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Salmon tartar spicy</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">5,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Tuna tartar <span class="text-on-surface-variant text-[13px]">/ spicy</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">6,00€</span></div>
 </div>
 </div>
+
+<!-- MAKIS -->
+<div class="mb-20 scroll-mt-40" id="makis">
+<div class="flex items-center gap-6 mb-8"><h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest whitespace-nowrap">Makis</h2><div class="flex-grow h-px bg-primary/20"></div></div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Hosomakis Fríos <span class="text-[12px] normal-case font-normal">(8 uds)</span></h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 mb-10">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Pepino</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">5,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Mango</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">6,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Aguacate</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">7,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Pez mantequilla</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">8,50€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Salmón</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">9,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Negitoro</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">10,50€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Atún rojo</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">11,00€</span></div>
 </div>
-<!-- Card 6 -->
-<div class="glass-card group flex flex-col h-full border-dashed border-primary/30 bg-transparent">
-<div class="flex flex-col items-center justify-center h-full p-12 text-center">
-<span class="material-symbols-outlined text-primary text-5xl mb-4" data-icon="menu_book">menu_book</span>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Descargar Carta Completa</h3>
-<p class="text-on-surface-variant font-body-md text-body-md mb-8">Consulta todas nuestras opciones, alérgenos y carta de vinos.</p>
-<button class="bg-primary text-on-primary px-8 py-3 font-label-lg text-label-lg tracking-widest hover:bg-primary-fixed transition-colors">
-                            VER PDF
-                        </button>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-2">Hosomakis Calientes <span class="text-[12px] normal-case font-normal">(8 uds)</span></h3>
+<p class="text-on-surface-variant text-[13px] italic mb-4">Base de maki de aguacate tempurizado con mayonesa japonesa y topping tartar</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 mb-10">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Salmón</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">12,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Atún</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">14,00€</span></div>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Futomaki</h3>
+<div class="overflow-x-auto mb-10">
+<table class="w-full max-w-lg">
+<thead><tr class="text-on-surface-variant font-label-lg text-label-lg border-b border-outline-variant/20 text-left"><th class="pb-3 font-medium">Variedad</th><th class="pb-3 font-medium text-right">5 ud</th><th class="pb-3 font-medium text-right pl-10">10 ud</th></tr></thead>
+<tbody>
+<tr class="menu-row group"><td class="py-4 font-body-lg name text-on-surface transition-colors">Vegano</td><td class="py-4 text-primary font-semibold text-right">7,50€</td><td class="py-4 text-primary font-semibold text-right pl-10">13,50€</td></tr>
+<tr class="menu-row group"><td class="py-4 font-body-lg name text-on-surface transition-colors">Mixto</td><td class="py-4 text-primary font-semibold text-right">9,50€</td><td class="py-4 text-primary font-semibold text-right pl-10">18,00€</td></tr>
+</tbody>
+</table>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Temaki <span class="text-[12px] normal-case font-normal">(1 ud)</span></h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Salmón <span class="text-on-surface-variant text-[13px]">/ picante</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">6,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Atún <span class="text-on-surface-variant text-[13px]">/ picante</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">7,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Soft shell crab</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">8,50€</span></div>
 </div>
 </div>
+
+<!-- ROLLS -->
+<div class="mb-20 scroll-mt-40" id="rolls">
+<div class="flex items-center gap-6 mb-8"><h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest whitespace-nowrap">Rolls</h2><div class="flex-grow h-px bg-primary/20"></div></div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Urumaki Frío</h3>
+<div class="overflow-x-auto mb-10">
+<table class="w-full max-w-lg">
+<thead><tr class="text-on-surface-variant font-label-lg text-label-lg border-b border-outline-variant/20 text-left"><th class="pb-3 font-medium">Roll</th><th class="pb-3 font-medium text-right">4 ud</th><th class="pb-3 font-medium text-right pl-10">8 ud</th></tr></thead>
+<tbody>
+<tr class="menu-row group"><td class="py-4 font-body-lg name text-on-surface transition-colors">Mizuki Roll</td><td class="py-4 text-primary font-semibold text-right">8,00€</td><td class="py-4 text-primary font-semibold text-right pl-10">15,00€</td></tr>
+<tr class="menu-row group"><td class="py-4 font-body-lg name text-on-surface transition-colors">Spicy Tuna</td><td class="py-4 text-primary font-semibold text-right">10,00€</td><td class="py-4 text-primary font-semibold text-right pl-10">19,00€</td></tr>
+<tr class="menu-row group"><td class="py-4 font-body-lg name text-on-surface transition-colors">Tropical</td><td class="py-4 text-primary font-semibold text-right">8,50€</td><td class="py-4 text-primary font-semibold text-right pl-10">15,50€</td></tr>
+<tr class="menu-row group"><td class="py-4 font-body-lg name text-on-surface transition-colors">Crazy Tuna</td><td class="py-4 text-primary font-semibold text-right">10,00€</td><td class="py-4 text-primary font-semibold text-right pl-10">19,00€</td></tr>
+<tr class="menu-row group"><td class="py-4 font-body-lg name text-on-surface transition-colors">Mango Tango</td><td class="py-4 text-primary font-semibold text-right">8,50€</td><td class="py-4 text-primary font-semibold text-right pl-10">16,00€</td></tr>
+</tbody>
+</table>
 </div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Urumaki Caliente</h3>
+<div class="overflow-x-auto mb-10">
+<table class="w-full max-w-lg">
+<thead><tr class="text-on-surface-variant font-label-lg text-label-lg border-b border-outline-variant/20 text-left"><th class="pb-3 font-medium">Roll</th><th class="pb-3 font-medium text-right">4 ud</th><th class="pb-3 font-medium text-right pl-10">8 ud</th></tr></thead>
+<tbody>
+<tr class="menu-row group"><td class="py-4 font-body-lg name text-on-surface transition-colors">Dragón Roll</td><td class="py-4 text-primary font-semibold text-right">9,00€</td><td class="py-4 text-primary font-semibold text-right pl-10">17,00€</td></tr>
+<tr class="menu-row group"><td class="py-4 font-body-lg name text-on-surface transition-colors">Toro foie / trufa</td><td class="py-4 text-primary font-semibold text-right">10,00€</td><td class="py-4 text-primary font-semibold text-right pl-10">19,00€</td></tr>
+<tr class="menu-row group"><td class="py-4 font-body-lg name text-on-surface transition-colors">Pez mantequilla roll</td><td class="py-4 text-primary font-semibold text-right">8,50€</td><td class="py-4 text-primary font-semibold text-right pl-10">16,00€</td></tr>
+<tr class="menu-row group"><td class="py-4 font-body-lg name text-on-surface transition-colors">Unagi roll con foie</td><td class="py-4 text-primary font-semibold text-right">10,00€</td><td class="py-4 text-primary font-semibold text-right pl-10">19,00€</td></tr>
+<tr class="menu-row group"><td class="py-4 font-body-lg name text-on-surface transition-colors">Unagi roll con trufa</td><td class="py-4 text-primary font-semibold text-right">10,00€</td><td class="py-4 text-primary font-semibold text-right pl-10">19,00€</td></tr>
+</tbody>
+</table>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Roll Tempurizado</h3>
+<div class="overflow-x-auto">
+<table class="w-full max-w-lg">
+<thead><tr class="text-on-surface-variant font-label-lg text-label-lg border-b border-outline-variant/20 text-left"><th class="pb-3 font-medium">Roll</th><th class="pb-3 font-medium text-right">5 ud</th><th class="pb-3 font-medium text-right pl-10">10 ud</th></tr></thead>
+<tbody>
+<tr class="menu-row group"><td class="py-4 font-body-lg name text-on-surface transition-colors">Hot Mizuki</td><td class="py-4 text-primary font-semibold text-right">8,50€</td><td class="py-4 text-primary font-semibold text-right pl-10">16,00€</td></tr>
+<tr class="menu-row group"><td class="py-4 font-body-lg name text-on-surface transition-colors">Hot Mixto</td><td class="py-4 text-primary font-semibold text-right">11,00€</td><td class="py-4 text-primary font-semibold text-right pl-10">20,00€</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- POKES & RAMEN -->
+<div class="mb-20 scroll-mt-40" id="pokes">
+<div class="flex items-center gap-6 mb-8"><h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest whitespace-nowrap">Pokes &amp; Ramen</h2><div class="flex-grow h-px bg-primary/20"></div></div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Pokes</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 mb-10">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Salmón</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">16,90€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Atún</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">17,90€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Pollo teriyaki</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">16,90€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Vegano</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">14,50€</span></div>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-2">Ramen</h3>
+<p class="text-on-surface-variant text-[13px] italic mb-4">Caldo miso u original · brotes de soja · naruto · cebolla morada · negi · huevo cocido · shiitake · seta shimeji</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 mb-10">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Mizuki</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">18,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Torikatsu</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">20,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Yesai Ramen <span class="text-on-surface-variant text-[13px]">(vegano)</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">13,00€</span></div>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Yakitori <span class="text-[12px] normal-case font-normal">(2 uds)</span></h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Pollo</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">12,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Salmón</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">13,00€</span></div>
+</div>
+</div>
+
+<!-- PLATOS PRINCIPALES -->
+<div class="mb-20 scroll-mt-40" id="platos">
+<div class="flex items-center gap-6 mb-8"><h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest whitespace-nowrap">Platos Principales</h2><div class="flex-grow h-px bg-primary/20"></div></div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-2">Yakimeshi <span class="text-[12px] normal-case font-normal">(arroz frito)</span></h3>
+<p class="text-on-surface-variant text-[13px] italic mb-4">Arroz salteado con verduras y huevo</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 mb-10">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Tofu <span class="text-on-surface-variant text-[13px]">(vegano)</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">12,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Pollo</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">13,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Gamba</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">15,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Mixto <span class="text-on-surface-variant text-[13px]">(pollo y gamba)</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">17,00€</span></div>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-2">Noodles</h3>
+<p class="text-on-surface-variant text-[13px] italic mb-4">Fideo de soba salteado al wok con verduras y huevo, salsa yakisoba y katsuobushi</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 mb-10">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Tofu vegano</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">12,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Pollo</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">13,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Gamba</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">15,00€</span></div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Mixto <span class="text-on-surface-variant text-[13px]">(pollo y gamba)</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">17,00€</span></div>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mb-4">Especialidades</h3>
+<div class="menu-row py-5 group">
+<div class="flex justify-between items-baseline"><span class="name font-body-lg text-on-surface transition-colors">Tepan de magret de pato</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">18,00€</span></div>
+<p class="text-on-surface-variant text-[13px] mt-1 italic">Con verduras salteadas, salsa unagi y tonkatsu</p>
+</div>
+<div class="menu-row py-5 group">
+<div class="flex justify-between items-baseline"><span class="name font-body-lg text-on-surface transition-colors">Salmón teriyaki 250g</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">19,00€</span></div>
+<p class="text-on-surface-variant text-[13px] mt-1 italic">Al horno, con arroz de sushi</p>
+</div>
+</div>
+
+<!-- POSTRES -->
+<div class="mb-10 scroll-mt-40" id="postres">
+<div class="flex items-center gap-6 mb-8"><h2 class="font-headline-md text-headline-md text-primary uppercase tracking-widest whitespace-nowrap">Postres</h2><div class="flex-grow h-px bg-primary/20"></div></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16">
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Tarta de queso</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">6,00€</span></div>
+<div class="menu-row py-4 group">
+<div class="flex justify-between items-baseline"><span class="name font-body-lg text-on-surface transition-colors">Mochis <span class="text-on-surface-variant text-[13px]">(2 ud)</span></span><span class="text-primary font-semibold ml-6 whitespace-nowrap">5,50€</span></div>
+<p class="text-on-surface-variant text-[13px] mt-1 italic">Chocolate · pistacho · coco · té verde</p>
+</div>
+<div class="menu-row flex justify-between items-baseline py-4 group"><span class="name font-body-lg text-on-surface transition-colors">Coulant de chocolate</span><span class="text-primary font-semibold ml-6 whitespace-nowrap">5,50€</span></div>
+</div>
+<p class="mt-10 text-on-surface-variant text-[12px] italic opacity-60">* El pez mantequilla puede originar efectos gastrointestinales. Prevención de anisakis aplicada.</p>
+</div>
+
 </section>
 </main>
 <!-- Floating Action Button -->
 <a href="reservas.html" class="fixed bottom-8 right-8 z-50 bg-primary text-on-primary px-6 py-4 rounded-full shadow-2xl flex items-center gap-3 group transition-all hover:pr-8 hover:scale-105 active:scale-95">
-<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="material-symbols-outlined">calendar_month</span>
 <span class="font-label-lg text-label-lg font-bold">RESERVAR MESA</span>
 </a>
 <!-- Footer -->
@@ -385,16 +444,12 @@
 <div class="space-y-4">
 <div class="font-headline-sm text-headline-sm text-primary">MIZUKI</div>
 <p class="text-on-surface-variant font-body-md text-body-md">Sushi &amp; Cocktail Bar</p>
-<div class="flex gap-4 pt-2">
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="share">share</span></a>
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="mail">mail</span></a>
-</div>
 </div>
 <div class="space-y-4">
 <h4 class="text-primary font-label-lg text-label-lg uppercase tracking-widest">Contacto</h4>
-<p class="text-on-surface-variant font-body-md text-body-md">Av. Palma de Mallorca, 27</p>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="https://maps.app.goo.gl/qXTERytdVipcLQKj7" target="_blank" rel="noopener">Av. Palma de Mallorca, 27</a>
 <p class="text-on-surface-variant font-body-md text-body-md">Torremolinos, Málaga</p>
-<p class="text-on-surface-variant font-body-md text-body-md">611 97 69 38</p>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="tel:611976938">611 97 69 38</a>
 </div>
 <div class="space-y-4">
 <h4 class="text-primary font-label-lg text-label-lg uppercase tracking-widest">Horario</h4>
@@ -409,37 +464,26 @@
 <p class="text-on-surface-variant font-body-md text-body-md hover:text-primary cursor-pointer transition-colors">Cookies</p>
 </div>
 </div>
-<div class="mt-16 text-center text-on-surface-variant font-body-md text-body-md opacity-60">
-            © 2024 MIZUKI SUSHI &amp; COCKTAIL. Torremolinos. Todos los derechos reservados.
-        </div>
+<div class="mt-16 text-center text-on-surface-variant font-body-md text-body-md opacity-60">© 2024 MIZUKI SUSHI &amp; COCKTAIL. Torremolinos. Todos los derechos reservados.</div>
 </footer>
 <script>
-        // Micro-interaction for category scrolling
         const container = document.querySelector('.no-scrollbar');
-        container.addEventListener('wheel', (evt) => {
-            evt.preventDefault();
-            container.scrollLeft += evt.deltaY;
-        });
-
-        // Sticky nav scroll effect
+        if (container) container.addEventListener('wheel', (evt) => { evt.preventDefault(); container.scrollLeft += evt.deltaY; });
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('bg-background/95');
-                nav.classList.remove('bg-background/80');
-            } else {
-                nav.classList.add('bg-background/80');
-                nav.classList.remove('bg-background/95');
-            }
+            if (window.scrollY > 50) { nav.classList.add('bg-background/95'); nav.classList.remove('bg-background/80'); }
+            else { nav.classList.add('bg-background/80'); nav.classList.remove('bg-background/95'); }
         });
     </script>
 <script>
         document.body.classList.add('is-entering');
+        setTimeout(function(){ document.body.classList.remove('is-entering'); }, 500);
         document.querySelectorAll('a[href]').forEach(link => {
             const href = link.getAttribute('href');
             if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('tel:') && !href.startsWith('mailto:')) {
                 link.addEventListener('click', e => {
                     e.preventDefault();
+                    var mob=document.getElementById('mobile-menu');if(mob&&mob._open){mob.style.transform='translateX(100%)';mob._open=false;document.body.style.overflow='';}
                     document.body.classList.remove('is-entering');
                     document.body.classList.add('is-leaving');
                     setTimeout(() => { window.location.href = href; }, 350);
@@ -447,4 +491,25 @@
             }
         });
     </script>
+<script>
+function toggleMenu() {
+  var m = document.getElementById('mobile-menu');
+  if (!m) return;
+  if (m._open) {
+    m.style.opacity = '0';
+    setTimeout(function(){ m.style.display = 'none'; }, 350);
+    m._open = false;
+    document.body.style.overflow = '';
+  } else {
+    m.style.display = 'flex';
+    setTimeout(function(){ m.style.opacity = '1'; }, 10);
+    m._open = true;
+    document.body.style.overflow = 'hidden';
+  }
+}
+document.querySelectorAll('#mobile-menu a').forEach(function(a) {
+  a.addEventListener('mouseover', function(){ this.style.color='#f2ca50'; });
+  a.addEventListener('mouseout', function(){ this.style.color='#eae1d4'; });
+});
+</script>
 </body></html>

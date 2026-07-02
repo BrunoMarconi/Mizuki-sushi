@@ -151,15 +151,29 @@
 <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="Cocktail.html">Cocktails</a>
 <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="reservas.html">Reservations</a>
 </div>
-<a href="reservas.html" class="bg-primary text-on-primary px-6 py-2 rounded-none font-label-lg text-label-lg hover:bg-primary-container transition-all active:scale-95">
-                Reservar Mesa
-            </a>
+<div class="flex items-center gap-3"><a href="reservas.html" class="hidden md:inline-flex bg-primary text-on-primary px-6 py-2 font-label-lg text-label-lg hover:bg-primary-container transition-all active:scale-95">Reservar Mesa</a><button id="hamburger-btn" class="md:hidden text-primary p-1" onclick="toggleMenu()" aria-label="Abrir menu"><span class="material-symbols-outlined" style="font-size:28px;font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24;">menu</span></button></div>
 </div>
 </nav>
+<!-- Mobile Menu -->
+<div id="mobile-menu" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background-color:#0a0a0a;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.35s ease;">
+<div style="position:absolute;top:1.4rem;left:1.4rem;font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;letter-spacing:0.2em;color:#f2ca50 !important;">MIZUKI</div>
+<button onclick="toggleMenu()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:#f2ca50;cursor:pointer;padding:0.5rem;line-height:1;">
+<span class="material-symbols-outlined" style="font-size:32px;">close</span>
+</button>
+<div style="display:flex;flex-direction:column;align-items:center;gap:2.5rem;text-align:center;padding:1rem;">
+<a href="index.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Home</a>
+<a href="menu.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Men&#250;</a>
+<a href="Cocktail.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Cocktails</a>
+<a href="reservas.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Reservas</a>
+</div>
+<div style="position:absolute;bottom:3rem;">
+<a href="reservas.html" style="display:inline-block;background:#f2ca50;color:#3c2f00 !important;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;padding:1rem 2.5rem;text-decoration:none;text-transform:uppercase;">RESERVAR MESA</a>
+</div>
+</div>
 <!-- Hero Section -->
 <header class="relative h-screen flex items-center justify-center overflow-hidden">
 <div class="absolute inset-0 z-0">
-<div class="w-full h-full parallax-bg" data-alt="A cinematic, low-key lit scene of a master sushi chef preparing premium nigiri at a dark wood counter. The background is softly blurred, focusing on the vibrant orange of fresh salmon and the elegant, minimal aesthetics of the high-end dining room in Torremolinos. Warm golden accent lighting catches the edges of dark ceramic plates and crystalline cocktail glasses." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJjSkUmEwOWTi2NObRcOhe5Q6sa6bdnaouvf_M6Y-VHt1wR3hL_sxnWfyRXlBJ_kyelx-sbcp2ueSrIs3nWYVGFafQdTcmmtyffm7hZcLI2VUlkH0TtTfRBfGDk6IBt2tfN6PoKbP0-Tb6T25g9vI6CjzB_M3MxH7a8SE8biHfeeMkn8tiAeEq97W6ZyRXTvKXSBQ9RFEgBdzzhw0do6q-pqHMusL9jekFrLaDtTw7B-tP3W-3q0_8xO8opJGrXRhgZknGJRi4ew')"></div>
+<div class="w-full h-full parallax-bg" data-alt="A cinematic, low-key lit scene of a master sushi chef preparing premium nigiri at a dark wood counter. The background is softly blurred, focusing on the vibrant orange of fresh salmon and the elegant, minimal aesthetics of the high-end dining room in Torremolinos. Warm golden accent lighting catches the edges of dark ceramic plates and crystalline cocktail glasses." style="background-image: url('mizuki-sushi-hero.jpeg')"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
 </div>
 <div class="relative z-10 text-center px-margin-mobile max-w-4xl">
@@ -188,7 +202,7 @@
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-16 items-center">
 <div class="relative">
 <div class="aspect-square w-full ghost-border p-4">
-<img alt="Interior Essence" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A moody and atmospheric interior view of Mizuki Sushi &amp; Cocktail Bar. The space features dark, textured stone walls illuminated by subtle golden spotlights and thin LED strips along the floor. Minimalist furniture in dark charcoal and wood tones creates an intimate and exclusive vibe, perfectly capturing the high-discerning atmosphere of a premium Torremolinos dining destination." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPvLVZwFEOct8mC-XWuPaGMqJTit_GC54KTaHgGcicsRQmBL2YCXR2BXN0bAQ_yoCbY4zVJk6Xfcq6064riP51brqIoiMV7JS0BPykh-pJq3yPndrb0UPfy30Gpc4jU7zuGh88vSSu1lH34PF3aeZMIqK0GOtemfjOY5cgfnoY_jsvjpIm-yVRp2oXfG1OCnVgPvLZZ7TuD4UVrm-XSSiOHpFOsmoiMW2k29yqpcl-CLd8sp6gPHGURaRu4-ouzBshDCGWbbusFw"/>
+<img alt="Interior Essence" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A moody and atmospheric interior view of Mizuki Sushi &amp; Cocktail Bar. The space features dark, textured stone walls illuminated by subtle golden spotlights and thin LED strips along the floor. Minimalist furniture in dark charcoal and wood tones creates an intimate and exclusive vibe, perfectly capturing the high-discerning atmosphere of a premium Torremolinos dining destination." src="mizuki-sushi-nuestraesencia.jpeg"/>
 </div>
 <div class="absolute -bottom-8 -right-8 bg-primary-container p-8 hidden md:block">
 <p class="font-headline-md text-headline-md text-on-primary-container">4.8</p>
@@ -238,7 +252,7 @@
 <!-- Card 1 -->
 <div class="min-w-[300px] md:min-w-[400px] group">
 <div class="relative h-[500px] overflow-hidden ghost-border">
-<img alt="Dragon Roll" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Extreme close-up of a premium Dragon Roll sushi, presented on a dark, artisanal slate plate. The roll features perfectly glazed unagi, fresh avocado slices resembling scales, and a dusting of golden sesame seeds. Lighting is dramatic and focused, highlighting the textures and rich colors against a deep charcoal background, evoking luxury and culinary precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwAf3SfcEy5_HQyAUftZArQZnwZEj7FsKOYw_CmMozQqDVBZPtAbXsMxAqSqPyx9zwC5l1et6gYwnD0oLO2WRI3yRUnxbkCyWUoSt82rrD3yX-msie9LuRaQ00CivPDmEZ4ECugnwpiDrBWRIAmnSJCIU85yYx1SUCHTg42Ky6qD10jhaDXtVIvkKL74s9rMf5Es2W8Z2PwEJOkl-4jpHLmYbzegd2xhFx0xrMfvhI8KRDrmFJb9tzUNaH3FRaoL_Tp26JuWiOLg"/>
+<img alt="Dragon Roll" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Extreme close-up of a premium Dragon Roll sushi, presented on a dark, artisanal slate plate. The roll features perfectly glazed unagi, fresh avocado slices resembling scales, and a dusting of golden sesame seeds. Lighting is dramatic and focused, highlighting the textures and rich colors against a deep charcoal background, evoking luxury and culinary precision." src="mizuki-sushi-carrusel.jpeg"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
 <div class="absolute bottom-0 left-0 p-8 w-full">
 <span class="inline-block px-3 py-1 bg-secondary text-on-secondary font-label-sm text-label-sm mb-4">RECOMENDADO</span>
@@ -251,7 +265,7 @@
 <!-- Card 2 -->
 <div class="min-w-[300px] md:min-w-[400px] group">
 <div class="relative h-[500px] overflow-hidden ghost-border">
-<img alt="Tataki de Salmón" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Exquisite Salmon Tataki slices arranged elegantly on a long dark ceramic dish. The salmon is lightly seared on the edges with a raw, vibrant pink center, topped with microgreens and a drizzle of citrus-soy reduction. The overall aesthetic is minimalist and dark, with sharp contrast and warm reflections from nearby ambient lights in the high-end Mizuki dining room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByYpr9tVISx3OtnRbp4Wj-MtHt5BtWvpvHQtwbINq7UMCwnnoEu6yUPqkiVJ93txD4xgItLpWKJ9lJpSupEhJh4S_Cl_XIAus6VDe8cXYEi97dcxG63u71m57T0ZgMlSkqlFjS17WWd4IUJmV9zQYzmTemQ2zjnDvdTyJsmubB-hL2CJG_RbWGQnNM_cAl1Wh-2UAquNOTLbIpUuWXIyO0rRgguC59tKW-mLmjWk2GpSg0eWGTWGVwHcaS6cHir0uPKJrujCjFTQ"/>
+<img alt="Tataki de Salmón" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Exquisite Salmon Tataki slices arranged elegantly on a long dark ceramic dish. The salmon is lightly seared on the edges with a raw, vibrant pink center, topped with microgreens and a drizzle of citrus-soy reduction. The overall aesthetic is minimalist and dark, with sharp contrast and warm reflections from nearby ambient lights in the high-end Mizuki dining room." src="mizuki-sushi-carrusel2.jpeg"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
 <div class="absolute bottom-0 left-0 p-8 w-full">
 <h3 class="font-headline-sm text-headline-sm text-white mb-2">Tataki de Salmón Marinado</h3>
@@ -263,7 +277,7 @@
 <!-- Card 3 -->
 <div class="min-w-[300px] md:min-w-[400px] group">
 <div class="relative h-[500px] overflow-hidden ghost-border">
-<img alt="Nigiri Moriawase" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A premium selection of Nigiri sushi, featuring fatty tuna, yellowtail, and sea bass. Each piece is placed on a minimalist dark stone platter. The lighting is low and sophisticated, casting soft shadows and emphasizing the glossy texture of the fresh fish. Gold leaf accents on one piece hint at the exclusive, luxury dining experience of Mizuki." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzyHIXPvuQrN70LwfzLH1TL-g2S_BDDfs7K3_GMplt8dZ72VDW16-6nJHbG5QgEnMfs4H0JSZ-4fLtXIK6c4-eoU0cO7K39FyTUwJqYFI5C_DG8wVDoG3jqaineN-ltydfys86txOfo43dn6A9ezWutOIqJYUfrPiMlX3vkljLpSSUU57EdSVymwVz5oP29GCNlipSGH6MasoxryKg18PfUPZ389QM0VpABT17WOxErvLYSqevRn9twrgr6FwDVyScNdVtepGD3w"/>
+<img alt="Nigiri Moriawase" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A premium selection of Nigiri sushi, featuring fatty tuna, yellowtail, and sea bass. Each piece is placed on a minimalist dark stone platter. The lighting is low and sophisticated, casting soft shadows and emphasizing the glossy texture of the fresh fish. Gold leaf accents on one piece hint at the exclusive, luxury dining experience of Mizuki." src="mizuki-sushi-carrusel3.jpeg"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
 <div class="absolute bottom-0 left-0 p-8 w-full">
 <h3 class="font-headline-sm text-headline-sm text-white mb-2">Nigiri Moriawase</h3>
@@ -275,7 +289,7 @@
 <!-- Card 4 -->
 <div class="min-w-[300px] md:min-w-[400px] group">
 <div class="relative h-[500px] overflow-hidden ghost-border">
-<img alt="Tuna Tartare" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A vibrant Bluefin Tuna Tartare served in a polished dark bowl. The dish is layered with creamy avocado mousse and topped with a quail egg yolk and black caviar. The background is a dark, atmospheric restaurant setting with subtle golden bokeh from candlelight, showcasing the sophisticated mix of ingredients and the high-end presentation at Mizuki." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo1d5SAOH55sC1Tyybi03La5lZ9PbftZsvNbad8AwkphNmW-xY0y2g779hOrUS-mE3UnrBa9lBi-YLNYVmM6oeRMiiwurfr2mj72B7B2oZJXuRbXdyxX6sAyXqMCPa6Mr_gZ9OInHqFbBqYvzUCE8xuDtCMyB-jusFfPT9ch14A-_yyCgXEWAgF24GsqdUeQfS3z3UA0GEcldmVHMogVnqv0P7X_6xOxxdidKVeMxQamDn6xgcG8dxtpBCJ3v9hdq_hunQl8dmMg"/>
+<img alt="Tuna Tartare" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A vibrant Bluefin Tuna Tartare served in a polished dark bowl. The dish is layered with creamy avocado mousse and topped with a quail egg yolk and black caviar. The background is a dark, atmospheric restaurant setting with subtle golden bokeh from candlelight, showcasing the sophisticated mix of ingredients and the high-end presentation at Mizuki." src="mizuki-sushi-carrusel4.jpeg"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
 <div class="absolute bottom-0 left-0 p-8 w-full">
 <h3 class="font-headline-sm text-headline-sm text-white mb-2">Tartar de Atún Rojo</h3>
@@ -295,11 +309,11 @@
 <div class="order-2 md:order-1">
 <div class="grid grid-cols-2 gap-4">
 <div class="space-y-4">
-<img alt="Cocktail 1" class="w-full h-80 object-cover ghost-border" data-alt="An elegant, crystalline cocktail glass filled with a sophisticated martini-style drink. A thin gold rim highlights the glass against a dark, moody background. A spiral of lemon zest floats gracefully. The lighting is high-contrast and dramatic, capturing the clarity of the spirit and the luxurious atmosphere of a high-end cocktail bar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH0haChdNXSAJHFS5SPhEas1WI4TOi0oE8-IHdhoAgo1cNqBRtWkcSgzabmmUjbG2mZJT2NoqP4V7BrhK4nvegL0KdzYyB8jQ4yQLzKHhVY_He8xshHHLfSff_70lODb_jEKGHlpRpKbTA6qOfEJaoK05pAf5IGPbhfRYB22k463hxo5h9xBDuOIwmZ-nbjEL9ErUc1B-KjY8LfltL096ApN5heiLbgBIqtu7N9cbTC8wFuvURG7ZF0SC7CzPJlGMWOZrJkKXGwA"/>
-<img alt="Cocktail 2" class="w-full h-64 object-cover ghost-border" data-alt="A dark-toned, refreshing highball cocktail with large clear ice cubes and a sprig of fresh mint. The drink is served in a textured glass that catches the dim ambient lighting of the Mizuki bar. The scene is intimate and moody, emphasizing the craftsmanship and artisanal nature of the mixology menu." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3Jmy8L1ABlbIggYz9C95J5TnV3Du8WErhX9LZGLSEtyZw_FQp0GdVTg98uT8Z0EnVLAiFtwE_dtv9Ie7vKjLYyzlXSvHAje2FjN15iLa9bq5NIN73y6fGnpO2FZGqv8a4x28X5InRlqhdPf_hB90F_JuQSytJx8NBUTbgsRNICI2BRN6YbzAucR95NMw-gZVxI4s5sDB3d7q9wmmzwVsepgArnMQ_bh8DDHA0ei55KV6Ij3siDiwihgFyzMzwfFPGLrGjJ-ZVrg"/>
+<img alt="Cocktail 1" class="w-full h-80 object-cover ghost-border" data-alt="An elegant, crystalline cocktail glass filled with a sophisticated martini-style drink. A thin gold rim highlights the glass against a dark, moody background. A spiral of lemon zest floats gracefully. The lighting is high-contrast and dramatic, capturing the clarity of the spirit and the luxurious atmosphere of a high-end cocktail bar." src="mizuki-sushi-cocktail-home.jpeg"/>
+<img alt="Cocktail 2" class="w-full h-64 object-cover ghost-border" data-alt="A dark-toned, refreshing highball cocktail with large clear ice cubes and a sprig of fresh mint. The drink is served in a textured glass that catches the dim ambient lighting of the Mizuki bar. The scene is intimate and moody, emphasizing the craftsmanship and artisanal nature of the mixology menu." src="mizuki-sushi-barra-accion.jpeg"/>
 </div>
 <div class="pt-12 space-y-4">
-<img alt="Cocktail 3" class="w-full h-96 object-cover ghost-border" data-alt="A dramatic presentation of a smoked cocktail under a glass cloche. Thick white smoke swirls inside, obscuring a deep amber drink. The background is a sleek, dark wood bar top. This visual highlights the sensory and theatrical experience offered at the Mizuki mixology counter, designed for a discerning clientele." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwk9EmK4PXG29pZG48j3oZVt-pPnGgKHwDPw6EyMH0nxCyNTsOTyjlp7jr4unQtha0SRwzmukVeBVhYE8N8Y8GCEPmN-6BJPsurNfsbkULBFWy9L-iRB67TwoJtTg6m72Qxix8a4OB1TzlsjEvvm37LrzPlu-Fu_dDjj7NTIqEoPCsN38-uhkWFIjoDiV5u9l7n_Dp3XqLsYKQhmApGquXEX2dXghLwd_mCcLCsVSZejqhEnUkrro0MgJ-bn7lK2yJWiyD96bJMA"/>
+<img alt="Cocktail 3" class="w-full h-96 object-cover ghost-border" data-alt="A dramatic presentation of a smoked cocktail under a glass cloche. Thick white smoke swirls inside, obscuring a deep amber drink. The background is a sleek, dark wood bar top. This visual highlights the sensory and theatrical experience offered at the Mizuki mixology counter, designed for a discerning clientele." src="mizuki-sushi-cocktail2.jpeg"/>
 </div>
 </div>
 </div>
@@ -359,7 +373,7 @@
 <span class="material-symbols-outlined text-primary">location_on</span>
 <div>
 <p class="font-label-lg text-label-lg uppercase text-on-surface mb-2">Dirección</p>
-<p class="font-body-md text-body-md text-on-surface-variant">Av. Palma de Mallorca, 27, 29620 Torremolinos, Málaga</p>
+<a href="https://maps.app.goo.gl/qXTERytdVipcLQKj7" target="_blank" rel="noopener" class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline">Av. Palma de Mallorca, 27, 29620 Torremolinos, Málaga</a>
 </div>
 </div>
 <div class="flex gap-6 items-start">
@@ -370,13 +384,8 @@
 </div>
 </div>
 </div>
-<div class="h-64 w-full ghost-border">
-<div class="w-full h-full bg-surface-container grayscale" data-location="Torremolinos, Spain" style="">
-<!-- Placeholder for Map -->
-<div class="w-full h-full flex items-center justify-center text-on-surface-variant/30">
-<span class="material-symbols-outlined text-6xl">map</span>
-</div>
-</div>
+<div class="h-64 w-full ghost-border overflow-hidden">
+<iframe src="https://maps.google.com/maps?q=Av+Palma+de+Mallorca+27+Torremolinos+Malaga+Spain&output=embed" width="100%" height="100%" style="border:0;filter:grayscale(1) invert(0.9) contrast(0.85);" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 </div>
 <div class="bg-surface-container-low p-12 ghost-border">
@@ -444,21 +453,11 @@
 <div class="space-y-6">
 <p class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface">Contacto</p>
 <ul class="space-y-4">
-<li class="text-on-surface-variant">Av. Palma de Mallorca, 27</li>
-<li class="text-on-surface-variant">611 97 69 38</li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="https://maps.app.goo.gl/qXTERytdVipcLQKj7" target="_blank" rel="noopener">Av. Palma de Mallorca, 27</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="tel:611976938">611 97 69 38</a></li>
 <li class="text-on-surface-variant">Instagram: @mizuki_sushi</li>
 <li class="text-on-surface-variant">Horario: 13:00 - 00:00</li>
 </ul>
-</div>
-<div class="space-y-6">
-<p class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface">Newsletter</p>
-<p class="text-on-surface-variant">Suscríbete para recibir ofertas exclusivas.</p>
-<div class="flex">
-<input class="bg-transparent border-b border-outline-variant w-full focus:border-primary outline-none py-2" placeholder="Tu email" type="email"/>
-<button class="border-b border-outline-variant hover:border-primary px-4 transition-all">
-<span class="material-symbols-outlined text-primary">send</span>
-</button>
-</div>
 </div>
 </div>
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-16 pt-8 border-t border-outline-variant/10 text-center">
@@ -484,16 +483,18 @@
             document.querySelectorAll('section').forEach(section => {
                 section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
                 observer.observe(section);
-            });
+            });   
         });
     </script>
 <script>
         document.body.classList.add('is-entering');
+        setTimeout(function(){ document.body.classList.remove('is-entering'); }, 500);
         document.querySelectorAll('a[href]').forEach(link => {
             const href = link.getAttribute('href');
             if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('tel:') && !href.startsWith('mailto:')) {
                 link.addEventListener('click', e => {
                     e.preventDefault();
+                    var mob=document.getElementById('mobile-menu');if(mob&&mob._open){mob.style.transform='translateX(100%)';mob._open=false;document.body.style.overflow='';}
                     document.body.classList.remove('is-entering');
                     document.body.classList.add('is-leaving');
                     setTimeout(() => { window.location.href = href; }, 350);
@@ -501,4 +502,25 @@
             }
         });
     </script>
+<script>
+function toggleMenu() {
+  var m = document.getElementById('mobile-menu');
+  if (!m) return;
+  if (m._open) {
+    m.style.opacity = '0';
+    setTimeout(function(){ m.style.display = 'none'; }, 350);
+    m._open = false;
+    document.body.style.overflow = '';
+  } else {
+    m.style.display = 'flex';
+    setTimeout(function(){ m.style.opacity = '1'; }, 10);
+    m._open = true;
+    document.body.style.overflow = 'hidden';
+  }
+}
+document.querySelectorAll('#mobile-menu a').forEach(function(a) {
+  a.addEventListener('mouseover', function(){ this.style.color='#f2ca50'; });
+  a.addEventListener('mouseout', function(){ this.style.color='#eae1d4'; });
+});
+</script>
 </body></html>

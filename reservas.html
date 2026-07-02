@@ -159,111 +159,88 @@
 <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="Cocktail.html">Cocktails</a>
 <a class="font-label-lg text-label-lg text-primary font-bold border-b border-primary pb-1" href="reservas.html">Reservations</a>
 </div>
-<button class="bg-primary/10 border border-primary text-primary px-6 py-2 font-label-lg text-label-lg hover:bg-primary hover:text-on-primary transition-all duration-300 active:scale-95">
-                RESERVAR MESA
-            </button>
+<div class="flex items-center gap-3"><button class="hidden md:inline-flex bg-primary/10 border border-primary text-primary px-6 py-2 font-label-lg text-label-lg hover:bg-primary hover:text-on-primary transition-all duration-300">RESERVAR MESA</button><button id="hamburger-btn" class="md:hidden text-primary p-1" onclick="toggleMenu()" aria-label="Abrir menu"><span class="material-symbols-outlined" style="font-size:28px;font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24;">menu</span></button></div>
 </div>
 </nav>
-<main class="pt-20">
-<!-- Hero Section -->
-<section class="relative h-[614px] flex items-center justify-center overflow-hidden">
-<div class="absolute inset-0 bg-black/40 z-10"></div>
-<div class="absolute inset-0">
-<img class="w-full h-full object-cover" data-alt="A sophisticated close-up of a professional mixologist's hands precisely garnishing a vibrant artisanal cocktail with a citrus twist. The background is a moody, dark-lit luxury restaurant interior with warm gold ambient lighting casting elegant shadows on polished surfaces. The scene captures the high-end atmospheric excellence of Mizuki, emphasizing artisanal craftsmanship and an exclusive culinary experience through high-contrast low-key photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4kEHggOmH87Cf9jSIHa9Srw22a3aOa7lJFfD3CjBGw4FZXe8SvgX2WSYe6Z1IZg-_k3QNPxcl56zZFLCDdI-NO9jrfEazzQ2uOOtqCueliIgEXwcJyawwdpq2s4HAA13OyR5UAGNhi9f50jxBGKTHUD0imUX7E6VDScs-PTjsEVsnaf6M5EP-rHQlOwNcohN1_X8snBpNKfW5kIK0Tv-e6M6J88TdM5x3guIX1biSuK5Ia-uVvNQa4Ik2WcXIjnxHIXjibIlE1A"/>
+<!-- Mobile Menu -->
+<div id="mobile-menu" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background-color:#0a0a0a;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.35s ease;">
+<div style="position:absolute;top:1.4rem;left:1.4rem;font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;letter-spacing:0.2em;color:#f2ca50 !important;">MIZUKI</div>
+<button onclick="toggleMenu()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:#f2ca50;cursor:pointer;padding:0.5rem;line-height:1;">
+<span class="material-symbols-outlined" style="font-size:32px;">close</span>
+</button>
+<div style="display:flex;flex-direction:column;align-items:center;gap:2.5rem;text-align:center;padding:1rem;">
+<a href="index.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Home</a>
+<a href="menu.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Men&#250;</a>
+<a href="Cocktail.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Cocktails</a>
+<a href="reservas.html" style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:600;color:#eae1d4 !important;text-decoration:none;letter-spacing:0.05em;display:block;">Reservas</a>
 </div>
-<div class="relative z-20 text-center px-margin-mobile">
-<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface drop-shadow-lg mb-4">Unforgettable Evenings</h1>
-<p class="font-headline-sm text-headline-sm text-primary max-w-2xl mx-auto italic">Crafting moments of culinary artistry and mixology excellence.</p>
+<div style="position:absolute;bottom:3rem;">
+<a href="reservas.html" style="display:inline-block;background:#f2ca50;color:#3c2f00 !important;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;padding:1rem 2.5rem;text-decoration:none;text-transform:uppercase;">RESERVAR MESA</a>
+</div>
+</div>
+<main>
+<!-- Hero Reservas -->
+<section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img src="mizuki-sushi-reserva.jpeg" alt="Mizuki Sushi" class="w-full h-full object-cover"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile pt-32 pb-20 max-w-3xl mx-auto">
+<span class="font-label-lg text-label-lg text-primary tracking-[0.3em] uppercase block mb-4">Reservaciones</span>
+<h1 class="font-display-lg text-[42px] md:text-[56px] leading-tight mb-6">Reserva tu mesa<br/><span class="text-primary">en Mizuki</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto">Contáctanos por WhatsApp o teléfono y te confirmamos tu reserva al instante.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a href="https://wa.me/34611976938" target="_blank" rel="noopener" class="flex items-center justify-center gap-3 bg-primary text-on-primary font-label-lg text-label-lg px-8 py-4 hover:bg-primary-container transition-all active:scale-95">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Reservar por WhatsApp
+</a>
+<a href="tel:611976938" class="flex items-center justify-center gap-3 border border-primary text-primary font-label-lg text-label-lg px-8 py-4 hover:bg-primary hover:text-on-primary transition-all active:scale-95">
+<span class="material-symbols-outlined" style="font-size:20px;">phone</span>
+611 97 69 38
+</a>
+</div>
+<p class="mt-8 text-on-surface-variant font-body-md text-sm">Todos los días · 13:00 – 00:00</p>
 </div>
 </section>
-<!-- Reservation Form Section -->
-<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-<!-- Left Column: Form -->
-<div class="lg:col-span-7">
-<div class="mb-12">
-<span class="text-primary font-label-lg tracking-widest uppercase">Make a Booking</span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface mt-2">Reserve Your Table</h2>
-</div>
-<form class="space-y-8" id="reservationForm">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="space-y-2">
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block">Date</label>
-<input class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant/40 focus:border-primary focus:ring-0 text-on-surface py-3 px-0 transition-colors" required="" type="date"/>
-</div>
-<div class="space-y-2">
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block">Time</label>
-<select class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant/40 focus:border-primary focus:ring-0 text-on-surface py-3 px-0 transition-colors" required="">
-<option disabled="" selected="" value="">Select Time</option>
-<option>13:00</option><option>13:30</option><option>14:00</option>
-<option>20:00</option><option>20:30</option><option>21:00</option>
-<option>21:30</option><option>22:00</option>
-</select>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="space-y-2">
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block">Guests</label>
-<select class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant/40 focus:border-primary focus:ring-0 text-on-surface py-3 px-0 transition-colors" required="">
-<option value="1">1 Person</option>
-<option value="2">2 People</option>
-<option value="4">4 People</option>
-<option value="6">6 People</option>
-<option value="large">Large Group (7+)</option>
-</select>
-</div>
-<div class="space-y-2">
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block">Full Name</label>
-<input class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant/40 focus:border-primary focus:ring-0 text-on-surface py-3 px-0 transition-colors placeholder:text-outline-variant/60" placeholder="Your Name" required="" type="text"/>
-</div>
-</div>
-<div class="space-y-2">
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block">Special Requests</label>
-<textarea class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant/40 focus:border-primary focus:ring-0 text-on-surface py-3 px-0 transition-colors placeholder:text-outline-variant/60 resize-none" placeholder="Allergies, birthday celebrations, or seating preferences..." rows="3"></textarea>
-</div>
-<div class="pt-6">
-<button class="w-full bg-transparent border border-primary text-primary hover:bg-primary hover:text-background transition-all duration-500 py-5 font-label-lg text-label-lg tracking-widest uppercase active:scale-95 luxury-border" type="submit">
-                                Confirm Reservation
-                            </button>
-</div>
-</form>
-</div>
-<!-- Right Column: Information Bento -->
-<div class="lg:col-span-5 space-y-8">
-<div class="bg-surface-container-low p-8 luxury-border">
-<h3 class="font-headline-sm text-headline-sm text-primary mb-6">The Experience</h3>
-<ul class="space-y-6">
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
-<div>
-<p class="font-label-lg text-label-lg text-on-surface">Dress Code</p>
-<p class="font-body-md text-body-md text-on-surface-variant mt-1">Smart Casual. We kindly ask our guests to avoid sportswear or beach attire.</p>
-</div>
-</li>
-<li class="flex items-start gap-4">
+
+<!-- Info Section -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-background">
+<div class="max-w-container-max mx-auto grid md:grid-cols-2 gap-12 items-start">
+<!-- Info cards -->
+<div class="space-y-6">
+<div class="bg-surface-container-low p-8 luxury-border space-y-6">
+<h2 class="font-headline-sm text-headline-sm text-primary">Información útil</h2>
+<div class="flex items-start gap-4">
 <span class="material-symbols-outlined text-primary mt-1">schedule</span>
 <div>
-<p class="font-label-lg text-label-lg text-on-surface">Grace Period</p>
-<p class="font-body-md text-body-md text-on-surface-variant mt-1">Tables are held for 15 minutes. Please call us if you are running late.</p>
+<p class="font-label-lg text-label-lg text-on-surface">Horario</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Todos los días de 13:00 a 00:00 · Cocina ininterrumpida</p>
 </div>
-</li>
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1">info</span>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">groups</span>
 <div>
-<p class="font-label-lg text-label-lg text-on-surface">Reservations</p>
-<p class="font-body-md text-body-md text-on-surface-variant mt-1">All bookings are for a duration of 2 hours. Groups over 8 require a deposit.</p>
+<p class="font-label-lg text-label-lg text-on-surface">Grupos</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Para grupos de 8 o más personas, contáctanos directamente.</p>
 </div>
-</li>
-</ul>
 </div>
-<div class="relative group overflow-hidden luxury-border h-64">
-<div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500 z-10 flex flex-col justify-end p-8">
-<p class="text-primary font-label-sm uppercase tracking-widest">Find Us</p>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">location_on</span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Ubicación</p>
+<a href="https://maps.app.goo.gl/qXTERytdVipcLQKj7" target="_blank" rel="noopener" class="font-body-md text-body-md text-on-surface-variant mt-1 hover:text-primary transition-colors block">Av. Palma de Mallorca, 27 · Torremolinos, Málaga →</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Photo -->
+<div class="relative group overflow-hidden luxury-border h-80 md:h-full min-h-[320px]">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500 z-10 flex flex-col justify-end p-8">
+<p class="text-primary font-label-sm uppercase tracking-widest">Encuéntranos</p>
 <p class="font-headline-sm text-headline-sm text-on-surface">Av. Palma de Mallorca, 27</p>
-<p class="text-on-surface-variant">Torremolinos, Spain</p>
+<p class="text-on-surface-variant">Torremolinos, Málaga</p>
 </div>
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A cinematic overhead shot of a sleek, dark-toned street in Torremolinos, capturing the upscale architectural facade of the Mizuki restaurant. The night lighting is dramatic, with warm golden glows emanating from floor-to-ceiling glass windows, contrasting against the deep obsidian-colored exterior. The overall mood is mysterious, inviting, and ultra-luxurious, emphasizing the restaurant's premium location in the heart of the city." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjg7p1kwPQOMnEnZlX_1Re3AeBGSnX_trpgp6940UCkclMavA3I7ENLp_aaUumHtANElA3SAFpIGNSBs4-gs8T9UxEt4JBx2FWVH4RmoBBe0LoHaHhvLWIFax8RkTgw-4BsUr6OWU408FUEObaIX1r3BFsYShI5ydGYKxtxaMSgCewA9vHgo_IrQKpPxkwLP8Jw6WjZS6LDcrMNYZe9bh1giMDXd64bTehovn_CucRvnAu_66-EHRSqdYIQKkom2kTq2U6oz-njw"/>
-</div>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="mizuki-sushi-galeria.jpeg" alt="Mizuki Sushi Torremolinos"/>
 </div>
 </div>
 </section>
@@ -275,13 +252,13 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="relative h-96 overflow-hidden luxury-border">
-<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" data-alt="A minimalist and high-end sushi presentation on a handcrafted obsidian ceramic plate, featuring delicate nigiri with gold leaf accents. The lighting is low-key, focused sharply on the textures of the fresh fish and the artistic plating. The background is a deep, dark charcoal color, reflecting the sophisticated 'Mizuki Obsidian' theme. The image exudes quiet luxury and culinary perfection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF_DABCyQDR0LwMU_FalJqI2mowQAVbN6yXHkByMuUNDqxNuC6TIYCfYlWPlqeh_9jQD04LxgBpR_K9JrSro1y9oDR0FFgKQY_Sfk3sVfn00sZjfPmGYIjedf5YU3iCzqWvd3KZT5qjgVg2AGUeOa_-k_uPynfvSniGNDIX92AwbYs_KZn-DKv_51AY0YeEfCDov9yuJaNLuhRQIhAI-KeAVwgskAPEbFCauGnN75qzC1oz4FDLrj2_a2bQw6EmNl4O7ELLO6Riw"/>
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" data-alt="A minimalist and high-end sushi presentation on a handcrafted obsidian ceramic plate, featuring delicate nigiri with gold leaf accents. The lighting is low-key, focused sharply on the textures of the fresh fish and the artistic plating. The background is a deep, dark charcoal color, reflecting the sophisticated 'Mizuki Obsidian' theme. The image exudes quiet luxury and culinary perfection." src="mizuki-sushi-carrusel-hero.jpeg"/>
 </div>
 <div class="relative h-96 overflow-hidden luxury-border md:mt-12">
-<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" data-alt="An atmospheric shot of an artisanal cocktail being poured into a crystal coupe glass, with fine droplets of liquid shimmering against a dark background. The lighting is warm and golden, highlighting the amber liquid and the sophisticated glassware. The scene is set in a high-discerning cocktail lounge atmosphere, showcasing the precision and elegance of the Mizuki beverage program." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP8z1VXk_vqHvQPAXsMB5t8hHhMzY0jzAlRI28Et7cfN8wWVpWhLW9lnAUFxRU7xISQdl9rMn6reYSo1-jGxg49x9GJ3lXBN0gnQGGiJVjJiW2G6otn3iIEMoMvKVYwF0zTd3vvQ5eYnX2pWaQH7OAYxACIaeK4VV9pqeT2zBpEcG36Hp5eAWAXQmnzuY1zxjkavwFKq4ryat9lXijUeHWJhLlxuVBt3sdRMu4U38JiQkCwSWD_hQa3IRAotx6qMinKJvqbmp9ZA"/>
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" data-alt="An atmospheric shot of an artisanal cocktail being poured into a crystal coupe glass, with fine droplets of liquid shimmering against a dark background. The lighting is warm and golden, highlighting the amber liquid and the sophisticated glassware. The scene is set in a high-discerning cocktail lounge atmosphere, showcasing the precision and elegance of the Mizuki beverage program." src="mizuki-sushi-cocktail2.jpeg"/>
 </div>
 <div class="relative h-96 overflow-hidden luxury-border">
-<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" data-alt="A wide-angle interior shot of a luxurious, contemporary dining room at night with minimal lighting. Circular gold light fixtures hang from a black ceiling, casting a soft warm glow over dark wooden tables and velvet seating. The atmosphere is quiet and confident, evoking the feeling of a private omakase counter. The visual style is rooted in minimalism and dark mode luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeUMx98hgXTxHAOaxH185L7WyGVfQHZQE_YlRWgFEASvzbQpuejyhRKHA3hslFQsEI8ME4EhM8FgD2WqwgwAsKgID0LC_XZk-rjHVr-IRMwKMybTIQCvcwfKQ-LA6IvJiQN2xL_xaYVsS9JcYyZLqxcPk1wBmZvjTMPQPF2YBhpHuIsVq5zigPiv6rHvHFqvXqevy1t6igPMsGGiAywSJrrXodJ3IAG4u-lt7IMq9MVXvptVeDiF5iy6KYmOPEVyYrdj6PoSH3kA"/>
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" data-alt="A wide-angle interior shot of a luxurious, contemporary dining room at night with minimal lighting. Circular gold light fixtures hang from a black ceiling, casting a soft warm glow over dark wooden tables and velvet seating. The atmosphere is quiet and confident, evoking the feeling of a private omakase counter. The visual style is rooted in minimalism and dark mode luxury." src="mizuki-sushi-galeria3.jpeg"/>
 </div>
 </div>
 </section>
@@ -295,7 +272,7 @@
 </div>
 <div class="flex flex-col space-y-2">
 <p class="font-label-lg text-label-lg text-primary uppercase mb-2">Location</p>
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Av. Palma de Mallorca, 27</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="https://maps.app.goo.gl/qXTERytdVipcLQKj7" target="_blank" rel="noopener">Av. Palma de Mallorca, 27</a>
 <p class="text-on-surface-variant">Torremolinos, Málaga</p>
 </div>
 <div class="flex flex-col space-y-2">
@@ -349,11 +326,13 @@
     </script>
 <script>
         document.body.classList.add('is-entering');
+        setTimeout(function(){ document.body.classList.remove('is-entering'); }, 500);
         document.querySelectorAll('a[href]').forEach(link => {
             const href = link.getAttribute('href');
             if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('tel:') && !href.startsWith('mailto:')) {
                 link.addEventListener('click', e => {
                     e.preventDefault();
+                    var mob=document.getElementById('mobile-menu');if(mob&&mob._open){mob.style.transform='translateX(100%)';mob._open=false;document.body.style.overflow='';}
                     document.body.classList.remove('is-entering');
                     document.body.classList.add('is-leaving');
                     setTimeout(() => { window.location.href = href; }, 350);
@@ -361,4 +340,25 @@
             }
         });
     </script>
+<script>
+function toggleMenu() {
+  var m = document.getElementById('mobile-menu');
+  if (!m) return;
+  if (m._open) {
+    m.style.opacity = '0';
+    setTimeout(function(){ m.style.display = 'none'; }, 350);
+    m._open = false;
+    document.body.style.overflow = '';
+  } else {
+    m.style.display = 'flex';
+    setTimeout(function(){ m.style.opacity = '1'; }, 10);
+    m._open = true;
+    document.body.style.overflow = 'hidden';
+  }
+}
+document.querySelectorAll('#mobile-menu a').forEach(function(a) {
+  a.addEventListener('mouseover', function(){ this.style.color='#f2ca50'; });
+  a.addEventListener('mouseout', function(){ this.style.color='#eae1d4'; });
+});
+</script>
 </body></html>
